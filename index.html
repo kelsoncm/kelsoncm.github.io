@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelson da Costa Medeiros | Currículo Online & Trajetória Tecnológica</title>
+  <meta name="description" content="Currículo online de Kelson da Costa Medeiros - Especialista em TI, Arquiteto de Software, Especialista DevOps e Pesquisador em Tecnologias Educacionais e Saúde Digital." />
+  <meta name="author" content="Kelson da Costa Medeiros" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kelson da Costa Medeiros | Currículo Online" />
+  <meta property="og:description" content="30+ anos impulsionando a transformação digital nos setores público, de saúde e educação no Brasil." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* Global Design System & Variables */
+    :root {
+      --bg-main: #0a0e17;
+      --bg-card: #111827;
+      --bg-card-hover: #1f293d;
+      --bg-card-glass: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.2);
+      
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --secondary: #818cf8;
+      --accent: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --bg-card-glass: rgba(255, 255, 255, 0.85);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-accent: rgba(2, 132, 199, 0.2);
+      
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      
+      --primary: #0284c7;
+      --secondary: #4f46e5;
+      --shadow-glow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    code, pre {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation Bar */
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-card-glass);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .brand-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 64px 0 48px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      position: sticky;
+      top: 96px;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .profile-img-wrapper {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .badge-status {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      background: var(--success);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      border: 2px solid var(--bg-card);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .profile-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .profile-title {
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .location-tag {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Bio & Stats */
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .hero-headline {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-summary {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section Component */
+    section.section-block {
+      padding: 48px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-main);
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+
+    /* Gantt Chart Styled & Modern */
+    .gantt-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-glow);
+      overflow-x: auto;
+    }
+
+    .gantt-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .gantt-filter-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .gantt-container {
+      min-width: 800px;
+      position: relative;
+    }
+
+    /* Gantt Years Header */
+    .gantt-timeline-header {
+      display: flex;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      padding-left: 200px;
+      position: relative;
+    }
+
+    .year-tick {
+      flex: 1;
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .year-tick::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -14px;
+      width: 1px;
+      height: 8px;
+      background: var(--border-color);
+    }
+
+    /* Gantt Body Rows */
+    .gantt-body {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .gantt-row {
+      display: flex;
+      align-items: center;
+      height: 38px;
+      position: relative;
+    }
+
+    .gantt-label {
+      width: 200px;
+      min-width: 200px;
+      padding-right: 16px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gantt-label i {
+      width: 18px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    .gantt-track {
+      flex: 1;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm);
+      position: relative;
+      border: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    .gantt-bar {
+      position: absolute;
+      height: 28px;
+      top: 5px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--bar-color), var(--bar-color-light, var(--bar-color)));
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .gantt-bar:hover {
+      transform: scaleY(1.1) translateY(-1px);
+      filter: brightness(1.25);
+      z-index: 10;
+    }
+
+    /* Gantt Tooltip */
+    .gantt-tooltip {
+      position: absolute;
+      z-index: 1000;
+      background: #0f172a;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 0.82rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      max-width: 320px;
+    }
+
+    .gantt-tooltip.visible {
+      opacity: 1;
+    }
+
+    .gantt-tooltip-title {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .gantt-tooltip-date {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 50%, rgba(255, 255, 255, 0.05) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -28px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: var(--transition);
+    }
+
+    .timeline-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .role-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .company-name {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .date-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .timeline-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets {
+      margin-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 6px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech-tag {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    /* PyPI & GitHub Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-badges {
+      display: flex;
+      gap: 6px;
+    }
+
+    .badge-pypi {
+      background: #3776AB;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+
+    .badge-cov {
+      background: #10b981;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      margin-bottom: 16px;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 12px;
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills Grid */
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .skill-cat-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Academic & Certifications */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .edu-degree {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .edu-institution {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .edu-period {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer.footer-block {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        position: relative;
+        top: 0;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <img src="profile.png" alt="Kelson da Costa Medeiros" class="brand-avatar" />
+        <span>Kelson Medeiros</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#gantt">Trajetória (Gantt)</a></li>
+        <li><a href="#experience">Experiência</a></li>
+        <li><a href="#projects">Projetos & PyPI</a></li>
+        <li><a href="#skills">Habilidades</a></li>
+        <li><a href="#education">Formação</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="themeToggle" title="Alternar tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container hero-grid">
+      
+      <!-- Profile Card Sidebar -->
+      <aside class="profile-card">
+        <div class="profile-img-wrapper">
+          <img src="profile.png" alt="Foto de Kelson da Costa Medeiros" class="profile-img" />
+          <div class="badge-status">
+            <span class="pulse-dot"></span> Disponível
+          </div>
+        </div>
+        <h1 class="profile-name">Kelson Medeiros</h1>
+        <p class="profile-title">Especialista DevOps | Arquiteto de Software | Pesquisador em TI</p>
+        <p class="location-tag">
+          <i class="fa-solid fa-location-dot"></i> Natal, RN - Brasil
+        </p>
+
+        <div class="social-links">
+          <a href="mailto:kelsoncm@gmail.com" class="social-btn" title="Email">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+          <a href="https://github.com/kelsoncm" target="_blank" rel="noopener" class="social-btn" title="GitHub">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/kelsoncm/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://lattes.cnpq.br/1734494254835148" target="_blank" rel="noopener" class="social-btn" title="Lattes">
+            <i class="fa-solid fa-graduation-cap"></i> Lattes
+          </a>
+          <a href="https://orcid.org/0000-0001-6749-4656" target="_blank" rel="noopener" class="social-btn" title="ORCID">
+            <i class="fa-solid fa-id-card"></i> ORCID
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Hero Description & Stats -->
+      <div class="hero-info">
+        <div class="hero-badge-tag">
+          <i class="fa-solid fa-award"></i> 30+ Anos de Trajetória em Inovação Tecnológica
+        </div>
+        
+        <h2 class="hero-headline">
+          Arquitetando soluções escaláveis para Educação, Saúde Digital e Governança Pública.
+        </h2>
+
+        <p class="hero-summary">
+          Especialista Sênior em DevOps e Arquiteto de Software com mais de 30 anos de experiência impulsionando a transformação digital nos setores público, de saúde e educação no Brasil. Atualmente lidero a infraestrutura em nuvem AWS e a automação de CI/CD para a plataforma de streaming do Ministério da Cultura (MinC / NEES), além de coordenar sistemas de tecnologia educacional no IFRN e colaborar como pesquisador no LAIS/UFRN (AVASUS, LUES, PNTD).
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Anos em TI (Desde 1996)</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Anos Pesquisa em Saúde</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">14+</span>
+            <span class="stat-label">Repositórios & Pacientes PyPI</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">27</span>
+            <span class="stat-label">Estados Atendidos no Brasil</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Gantt Chart Section -->
+  <section class="section-block" id="gantt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-chart-gantt"></i> Trajetória Tecnológica Interativa
+        </h2>
+        <p class="section-subtitle">
+          Distribuição temporal das principais linguagens, ecossistemas e tecnologias trabalhadas de 1996 a 2026.
+        </p>
+      </div>
+
+      <div class="gantt-wrapper">
+        <div class="gantt-toolbar">
+          <div class="gantt-filter-btns" id="ganttFilterGroup">
+            <button class="filter-btn active" data-filter="all">Todas as Tecnologias</button>
+            <button class="filter-btn" data-filter="languages">Linguagens Principais</button>
+            <button class="filter-btn" data-filter="platforms">Plataformas & DevOps</button>
+            <button class="filter-btn" data-filter="databases">Bancos de Dados</button>
+            <button class="filter-btn" data-filter="frontend">Frontend & UI</button>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">
+            <i class="fa-solid fa-circle-info"></i> Passe o mouse ou toque nas barras para ver detalhes
+          </span>
+        </div>
+
+        <div class="gantt-container">
+          <!-- Years Axis Header -->
+          <div class="gantt-timeline-header" id="ganttYearsHeader"></div>
+
+          <!-- Gantt Rows Container -->
+          <div class="gantt-body" id="ganttBody"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section class="section-block" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-briefcase"></i> Experiência Profissional & Liderança
+        </h2>
+        <p class="section-subtitle">
+          Consolidação do histórico de atuação no setor público, instituições federais e empresas de tecnologia.
+        </p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- NEES -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Especialista DevOps & Infraestrutura em Nuvem</h3>
+                <span class="company-name">NEES - Núcleo de Excelência em Tecnologias Sociais</span>
+              </div>
+              <span class="date-badge">Abr 2025 - Presente</span>
+            </div>
+            <p class="timeline-desc">
+              Liderança de arquitetura, infraestrutura como código (IaC) e implantação da plataforma de streaming baseada em AWS para o Ministério da Cultura (MinC).
+            </p>
+            <ul class="timeline-bullets">
+              <li>Implementação de pipelines de CI/CD automatizadas no GitLab CI.</li>
+              <li>Orquestração de clusters Kubernetes (EKS) e gerenciamento via Helm charts.</li>
+              <li>Provisionamento IaaS com Terraform, integração com CloudFront CDN e estratégias de alta disponibilidade.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">Terraform</span>
+              <span class="tech-tag">Helm</span>
+              <span class="tech-tag">GitLab CI/CD</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IFRN -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Coordenador de Tecnologia Educacional / Analista de Sistemas</h3>
+                <span class="company-name">IFRN - Instituto Federal do Rio Grande do Norte</span>
+              </div>
+              <span class="date-badge">Jan 2014 - Presente</span>
+            </div>
+            <p class="timeline-desc">
+              Gestão de equipes multidisciplinares de desenvolvimento, design, suporte e redes no Campus EaD.
+            </p>
+            <ul class="timeline-bullets">
+              <li>Coordenação e desenvolvimento de plugins e temas Moodle integrados ao sistema acadêmico SUAP.</li>
+              <li>Administração de SGBD PostgreSQL (alta disponibilidade, replicação e tuning de performance).</li>
+              <li>Desenvolvimento em Python/Django para módulos de pesquisa, inovação e processos seletivos.</li>
+              <li>Coordenação do projeto da solução MOOC na plataforma IFRN TIMTec.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">Moodle Core & Plugins</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">SUAP</span>
+              <span class="tech-tag">Gestão de Equipes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAIS / UFRN -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Pesquisador em TI / Gerente de Desenvolvimento de Software</h3>
+                <span class="company-name">LAIS - Laboratório de Inovação Tecnológica em Saúde (HUOL/UFRN)</span>
+              </div>
+              <span class="date-badge">Jul 2015 - Dez 2025</span>
+            </div>
+            <p class="timeline-desc">
+              Gestor de desenvolvimento de software no Campus Virtual, liderando projetos nacionais de saúde digital.
+            </p>
+            <ul class="timeline-bullets">
+              <li>Desenvolvimento do AVASUS (plataforma e-Learning do SUS que atende milhões de profissionais).</li>
+              <li>Ecossistema LUES (resposta rápida ao enfrentamento da Sífilis no Brasil) e PNTD (Telediagnóstico atendendo 9 estados).</li>
+              <li>Backend robusto em Python/Django/FastAPI e PHP/Laravel, filas Celery, APIs RESTful Swagger/OpenAPI.</li>
+              <li>Microsserviços com Docker, Elasticsearch, PostgreSQL e integrações avançadas com Moodle.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">PHP/Laravel</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">Moodle</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAICA / NAVI -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Pesquisador em TI</h3>
+                <span class="company-name">LAICA / NAVI (IFRN)</span>
+              </div>
+              <span class="date-badge">Jul 2020 - Mar 2025</span>
+            </div>
+            <p class="timeline-desc">
+              Pesquisa e desenvolvimento em tecnologias educacionais, integração de plugins Moodle e Prontuário Eletrônico (EHR) do RN.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Moodle Integrations</span>
+              <span class="tech-tag">EHR (Health Record)</span>
+              <span class="tech-tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- VOX TI -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Engenheiro de Software</h3>
+                <span class="company-name">VOX Tecnologia da Informação Ltda</span>
+              </div>
+              <span class="date-badge">Fev 2013 - Jan 2014</span>
+            </div>
+            <p class="timeline-desc">
+              Gerenciamento das equipes de arquitetura, infraestrutura e banco de dados. Manutenção da REDESIM e correções de segurança no Zend Framework.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">PHP/Zend</span>
+              <span class="tech-tag">Engenharia de Software</span>
+              <span class="tech-tag">REDESIM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TSE -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Arquiteto de Software Java</h3>
+                <span class="company-name">TSE - Tribunal Superior Eleitoral</span>
+              </div>
+              <span class="date-badge">Mar 2010 - Fev 2013</span>
+            </div>
+            <p class="timeline-desc">
+              Definição de padrões arquiteturais corporativos em Java, engenharia de software e consultoria em projetos de segurança.
+            </p>
+            <ul class="timeline-bullets">
+              <li>Arquitetura em Java 6, Spring Framework 3, Hibernate 3, Struts 2 e JasperReports.</li>
+              <li>Servidores de aplicação Tomcat e JBoss EAP. Modelagem avançada em PostgreSQL e Oracle.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Java 6</span>
+              <span class="tech-tag">Spring 3</span>
+              <span class="tech-tag">Hibernate</span>
+              <span class="tech-tag">JBoss / Tomcat</span>
+              <span class="tech-tag">Oracle / PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optimedia -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Gerente de Projetos Assistente</h3>
+                <span class="company-name">Optimedia Tecnologia em Informática Ltda</span>
+              </div>
+              <span class="date-badge">Abr 2009 - Fev 2010</span>
+            </div>
+            <p class="timeline-desc">
+              Liderança no desenvolvimento de redes sociais educacionais e videoconferência E-learning (PHP, Flex, Red5, Moodle).
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">Moodle</span>
+              <span class="tech-tag">Red5</span>
+              <span class="tech-tag">Flex</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FNDE -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Gerente de Arquitetura & Desenvolvedor (Delphi / Java)</h3>
+                <span class="company-name">FNDE - Fundo Nacional de Desenvolvimento da Educação</span>
+              </div>
+              <span class="date-badge">Mai 2002 - Fev 2009</span>
+            </div>
+            <p class="timeline-desc">
+              Trajetória de 6 anos e 10 meses liderando projetos estruturantes de arquitetura e desenvolvimento.
+            </p>
+            <ul class="timeline-bullets">
+              <li>Desenvolvimento de sistema integrado financeiro e bancário (SIAFI, Banco do Brasil, Caixa, Itaú) em Delphi com APIs Orientadas a Objetos (2002-2004).</li>
+              <li>Projetista Java na criação de modelos de classes corporativas para redução do ciclo de vida dos sistemas (2004).</li>
+              <li>Gerente de Arquitetura liderando a substituição progressiva do Delphi 5 VCL para Delphi 2005 VCL e rápida adoção de ASP.NET (2004-2009).</li>
+              <li>Desenvolvimento de aplicação de Prestação de Contas Eletrônica em RIA com ExtJS, JSON e Java EJB3/JSF em cluster.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Delphi 5 / 2005</span>
+              <span class="tech-tag">Java EJB3 / JSF</span>
+              <span class="tech-tag">ExtJS</span>
+              <span class="tech-tag">SIAFI</span>
+              <span class="tech-tag">Oracle</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AgênciaClick / Zevallos -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Desenvolvedor Web (ASP / VB6 / JSP)</h3>
+                <span class="company-name">AgênciaClick & Zevallos Tecnologia</span>
+              </div>
+              <span class="date-badge">Nov 1999 - Mai 2002</span>
+            </div>
+            <p class="timeline-desc">
+              Desenvolvimento de portais web de grande porte (Brasil Telecom, Transposição do São Francisco), e-commerce em JSP e criação do framework Hipertools em VB6.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">ASP / VBScript</span>
+              <span class="tech-tag">VB6</span>
+              <span class="tech-tag">JSP / Java</span>
+              <span class="tech-tag">Oracle</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Poliedro -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Desenvolvedor Delphi & Clipper</h3>
+                <span class="company-name">Poliedro Informática Consultoria e Serviços</span>
+              </div>
+              <span class="date-badge">Fev 1996 - Nov 1999</span>
+            </div>
+            <p class="timeline-desc">
+              Início da carreira profissional construindo sistemas robustos em Clipper para MS-DOS (Rede Novell) e produtos corporativos em Delphi 5 para Gerenciamento Eletrônico de Documentos (GED/DMS), Workflow e OCR/ICR.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Delphi</span>
+              <span class="tech-tag">Clipper</span>
+              <span class="tech-tag">GED / DMS</span>
+              <span class="tech-tag">Workflow</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects & PyPI Packages -->
+  <section class="section-block" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-cubes"></i> Pacotes PyPI, Open Source & Ecossistema
+        </h2>
+        <p class="section-subtitle">
+          Bibliotecas publicadas no PyPI com 100% de cobertura de testes e ecossistema de extensões Moodle/Django.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-brands fa-python"></i> python-sc4py</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">PyPI v1.1.9</span>
+                <span class="badge-cov">100% Cobertura</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Utilitários Python para data/hora, parsing de variáveis de ambiente, carregamento dinâmico de classes, percentuais e manipulação de ZIPs em memória.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Python 3.10 - 3.14</span>
+            <a href="https://github.com/kelsoncm/python-sc4py" target="_blank" rel="noopener" class="project-link">
+              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-brands fa-python"></i> python-sc4net</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">PyPI v1.2.0</span>
+                <span class="badge-cov">100% Cobertura</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Helpers de rede para downloads HTTP(S) e FTP com leitores nativos de dados JSON e arquivos ZIP comprimidos.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Python 3.10 - 3.14</span>
+            <a href="https://github.com/kelsoncm/python-sc4net" target="_blank" rel="noopener" class="project-link">
+              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-brands fa-python"></i> pyfwf</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">PyPI v1.0.4</span>
+                <span class="badge-cov">100% Cobertura</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Biblioteca completa para parsing e manipulação de arquivos de largura fixa (Fixed Width Files - FWF).
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Python 3.10 - 3.14</span>
+            <a href="https://github.com/kelsoncm/pyfwf" target="_blank" rel="noopener" class="project-link">
+              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-solid fa-shield-halved"></i> django-sabia-auth & suap-auth</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">PyPI</span>
+                <span class="badge-cov">MIT</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Módulos de autenticação OAuth2 para integração do Django com as plataformas Sabiá e SUAP.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Django / Auth</span>
+            <a href="https://github.com/kelsoncm" target="_blank" rel="noopener" class="project-link">
+              Ver Repositórios <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-solid fa-graduation-cap"></i> Moodle Extensions</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">GPL v3</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Suíte de plugins Moodle incluindo <code style="color:var(--primary);">tiny_justify</code>, <code style="color:var(--primary);">tool_sentry</code>, <code style="color:var(--primary);">mod_attendance_suap</code> e <code style="color:var(--primary);">tool_sga</code>.
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Moodle 4.x - 5.x</span>
+            <a href="https://github.com/kelsoncm" target="_blank" rel="noopener" class="project-link">
+              Ver no Moodle.org / GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-header">
+              <h3 class="project-name"><i class="fa-solid fa-palette"></i> superset-theme-dsgovbr</h3>
+              <div class="project-badges">
+                <span class="badge-pypi">Open Source</span>
+              </div>
+            </div>
+            <p class="project-desc">
+              Tema customizado para Apache Superset no padrão do Design System do Governo Federal do Brasil (DSGovBR).
+            </p>
+          </div>
+          <div class="project-footer">
+            <span class="tech-tag">Superset / DSGovBR</span>
+            <a href="https://github.com/kelsoncm/superset-theme-dsgovbr" target="_blank" rel="noopener" class="project-link">
+              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Breakdown -->
+  <section class="section-block" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-layer-group"></i> Competências Técnicas & Domínios
+        </h2>
+        <p class="section-subtitle">
+          Visão agrupada por especialidade técnica e áreas de atuação institucional.
+        </p>
+      </div>
+
+      <div class="skills-categories">
+
+        <div class="skill-cat-card">
+          <h3 class="skill-cat-title"><i class="fa-solid fa-code"></i> Backend & Linguagens</h3>
+          <div class="skill-list">
+            <span class="skill-pill"><i class="fa-brands fa-python"></i> Python (Django, FastAPI)</span>
+            <span class="skill-pill"><i class="fa-brands fa-php"></i> PHP (Laravel, Lumen)</span>
+            <span class="skill-pill"><i class="fa-brands fa-java"></i> Java (Spring, Hibernate)</span>
+            <span class="skill-pill"><i class="fa-solid fa-code"></i> Delphi (VCL)</span>
+            <span class="skill-pill"><i class="fa-solid fa-bolt"></i> Celery Async Queues</span>
+            <span class="skill-pill"><i class="fa-solid fa-network-wired"></i> RESTful APIs / Swagger</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <h3 class="skill-cat-title"><i class="fa-solid fa-cloud"></i> Cloud, DevOps & Infra</h3>
+          <div class="skill-list">
+            <span class="skill-pill"><i class="fa-brands fa-aws"></i> AWS (EKS, CloudFront)</span>
+            <span class="skill-pill"><i class="fa-brands fa-docker"></i> Docker Containerization</span>
+            <span class="skill-pill"><i class="fa-solid fa-dharmachakra"></i> Kubernetes & Helm</span>
+            <span class="skill-pill"><i class="fa-solid fa-cubes-stacked"></i> Terraform IaC</span>
+            <span class="skill-pill"><i class="fa-brands fa-gitlab"></i> GitLab CI/CD Pipelines</span>
+            <span class="skill-pill"><i class="fa-solid fa-wind"></i> Apache Airflow</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <h3 class="skill-cat-title"><i class="fa-solid fa-database"></i> Bancos de Dados & Dados</h3>
+          <div class="skill-list">
+            <span class="skill-pill"><i class="fa-solid fa-database"></i> PostgreSQL (Administração & HA)</span>
+            <span class="skill-pill"><i class="fa-solid fa-server"></i> Oracle DBMS</span>
+            <span class="skill-pill"><i class="fa-solid fa-database"></i> MySQL / MariaDB</span>
+            <span class="skill-pill"><i class="fa-solid fa-memory"></i> Redis Cache</span>
+            <span class="skill-pill"><i class="fa-solid fa-magnifying-glass"></i> Elasticsearch</span>
+          </div>
+        </div>
+
+        <div class="skill-cat-card">
+          <h3 class="skill-cat-title"><i class="fa-solid fa-hospital-user"></i> Domínios de Aplicação</h3>
+          <div class="skill-list">
+            <span class="skill-pill"><i class="fa-solid fa-laptop-medical"></i> Saúde Digital (AVASUS, EHR)</span>
+            <span class="skill-pill"><i class="fa-solid fa-graduation-cap"></i> Tecnologias Educacionais (Moodle, EaD)</span>
+            <span class="skill-pill"><i class="fa-solid fa-building-columns"></i> Governança Pública (SUAP, SIAFI)</span>
+            <span class="skill-pill"><i class="fa-solid fa-shield-halved"></i> Desenvolvimento Seguro (OWASP)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section class="section-block" id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica & Certificações
+        </h2>
+        <p class="section-subtitle">
+          Títulos acadêmicos e certificações internacionais em segurança de software.
+        </p>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3 class="edu-degree">Especialização em Informática na Saúde</h3>
+          <p class="edu-institution">Universidade Federal do Rio Grande do Norte (UFRN)</p>
+          <span class="edu-period">2015 - 2017</span>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
+            Título: Implementação da especialidade de eletrocardiograma na PNTD. Orientador: Danilo Alves Pinto Nagem.
+          </p>
+        </div>
+
+        <div class="edu-card">
+          <h3 class="edu-degree">Graduação em Análise e Desenvolvimento de Sistemas</h3>
+          <p class="edu-institution">Universidade Estadual do Tocantins (UNITINS)</p>
+          <span class="edu-period">2008 - 2010</span>
+        </div>
+
+        <div class="edu-card">
+          <h3 class="edu-degree">Certificações & Treinamentos de Segurança</h3>
+          <p class="edu-institution">The Linux Foundation & OWASP</p>
+          <ul style="font-size: 0.84rem; color: var(--text-muted); margin-top: 8px; padding-left: 16px;">
+            <li>LFD121: Developing Secure Software</li>
+            <li>LFD125: Security for Software Development Managers</li>
+            <li>SKF100: Understanding the OWASP Top 10 Security Threats</li>
+            <li>Organizador / Atividade SEMEAD 2024</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-block">
+    <div class="container">
+      <p>© 2026 Kelson da Costa Medeiros. Todos os direitos reservados.</p>
+      <p style="font-size: 0.8rem; margin-top: 6px; color: var(--text-dim);">
+        Construído com HTML5, CSS3 Vanilla e JS Nativo • Disponível para GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <!-- Tooltip Element for Gantt -->
+  <div class="gantt-tooltip" id="ganttTooltip">
+    <div class="gantt-tooltip-title" id="tooltipTitle"></div>
+    <div class="gantt-tooltip-date" id="tooltipDate"></div>
+    <div id="tooltipDetail"></div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', newTheme);
+      themeToggle.innerHTML = newTheme === 'light' 
+        ? '<i class="fa-solid fa-sun"></i>' 
+        : '<i class="fa-solid fa-moon"></i>';
+    });
+
+    // Gantt Chart Data Definition (1996 - 2026 = 30 Years Span)
+    const START_YEAR = 1996;
+    const END_YEAR = 2026.5;
+    const TOTAL_YEARS = END_YEAR - START_YEAR;
+
+    const ganttItems = [
+      {
+        id: "delphi",
+        category: "languages",
+        name: "Delphi",
+        icon: "fa-solid fa-code",
+        color: "#E64A19",
+        periods: [
+          { start: 1996 + 9/12, end: 1999 + 10/12, dateLabel: "Out/1996 - Nov/1999", detail: "Poliedro: Sistemas de GED/DMS, Workflow e Delphi 5" },
+          { start: 2002 + 4/12, end: 2009 + 8/12, dateLabel: "Mai/2002 - Set/2009", detail: "FNDE: Sistemas Financeiros SIAFI e Migração Delphi 2005 VCL" }
+        ]
+      },
+      {
+        id: "java",
+        category: "languages",
+        name: "Java",
+        icon: "fa-brands fa-java",
+        color: "#F57C00",
+        periods: [
+          { start: 2004 + 1/12, end: 2013 + 1/12, dateLabel: "Fev/2004 - Fev/2013", detail: "FNDE & TSE: Arquiteto Java, Spring 3, Hibernate, EJB3, JSF, Struts 1/2" }
+        ]
+      },
+      {
+        id: "python",
+        category: "languages",
+        name: "Python / Django",
+        icon: "fa-brands fa-python",
+        color: "#3776AB",
+        periods: [
+          { start: 2014, end: 2026.5, dateLabel: "Jan/2014 - Presente", detail: "IFRN, LAIS & Pacotes PyPI: Django, FastAPI, Celery, sc4py, sc4net" }
+        ]
+      },
+      {
+        id: "php",
+        category: "languages",
+        name: "PHP / Laravel",
+        icon: "fa-brands fa-php",
+        color: "#777BB4",
+        periods: [
+          { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "Abr/2009 - Fev/2010", detail: "Optimedia: PHP 5, Red5 e Plataforma de E-learning" },
+          { start: 2014, end: 2026.5, dateLabel: "Jan/2014 - Presente", detail: "IFRN & LAIS: Moodle Plugins, Laravel, Lumen REST APIs" }
+        ]
+      },
+      {
+        id: "asp",
+        category: "languages",
+        name: "ASP / VB6",
+        icon: "fa-solid fa-window-restore",
+        color: "#00838F",
+        periods: [
+          { start: 1999 + 10/12, end: 2002 + 4/12, dateLabel: "Nov/1999 - Mai/2002", detail: "Zevallos & AgênciaClick: Framework Hipertools VB6, Portais ASP" }
+        ]
+      },
+      {
+        id: "clipper",
+        category: "languages",
+        name: "Clipper",
+        icon: "fa-solid fa-terminal",
+        color: "#795548",
+        periods: [
+          { start: 1996 + 1/12, end: 1996 + 9/12, dateLabel: "Fev/1996 - Out/1996", detail: "Poliedro: Sistemas MS-DOS concorrentes em Rede Novell" }
+        ]
+      },
+      {
+        id: "moodle",
+        category: "platforms",
+        name: "Moodle / EaD",
+        icon: "fa-solid fa-graduation-cap",
+        color: "#F7931E",
+        periods: [
+          { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "2009 - 2010", detail: "Optimedia: Customização de AVA" },
+          { start: 2014, end: 2026.5, dateLabel: "2014 - Presente", detail: "IFRN & LAIS: Dev/Admin Moodle 1.1 até 5.x, Plugins SUAP & Sentry" }
+        ]
+      },
+      {
+        id: "devops",
+        category: "platforms",
+        name: "DevOps & Cloud (AWS/K8s)",
+        icon: "fa-brands fa-aws",
+        color: "#10b981",
+        periods: [
+          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "NEES/MinC & LAIS: AWS EKS, Docker, Terraform, Helm, GitLab CI/CD, Airflow" }
+        ]
+      },
+      {
+        id: "mssql",
+        category: "databases",
+        name: "MS SQL Server",
+        icon: "fa-solid fa-database",
+        color: "#E63946",
+        periods: [
+          { start: 1996 + 9/12, end: 2001 + 4/12, dateLabel: "Out/1996 - Mai/2001", detail: "Poliedro & Zevallos: Desenvolvimento e administração de SGBD MS SQL Server" }
+        ]
+      },
+      {
+        id: "oracle",
+        category: "databases",
+        name: "Oracle DBMS",
+        icon: "fa-solid fa-database",
+        color: "#F80000",
+        periods: [
+          { start: 2001 + 4/12, end: 2013 + 1/12, dateLabel: "Mai/2001 - Fev/2013", detail: "AgênciaClick, FNDE & TSE: Oracle 8i/9i/10g, PL/SQL, Tuning, Clusters e Modelagem OO Relacional" }
+        ]
+      },
+      {
+        id: "mysql",
+        category: "databases",
+        name: "MySQL / MariaDB",
+        icon: "fa-solid fa-database",
+        color: "#00758F",
+        periods: [
+          { start: 1999 + 10/12, end: 2026.5, dateLabel: "Nov/1999 - Presente", detail: "Zevallos, AgênciaClick, Optimedia & LAIS: Portais Web, Sistemas de E-learning e Moodle" }
+        ]
+      },
+      {
+        id: "postgresql",
+        category: "databases",
+        name: "PostgreSQL",
+        icon: "fa-solid fa-database",
+        color: "#336791",
+        periods: [
+          { start: 2004 + 8/12, end: 2026.5, dateLabel: "Set/2004 - Presente", detail: "FNDE, TSE, IFRN (Administrador de SGBD 9.x+ com Alta Disponibilidade e Redundância desde 2014) & LAIS" }
+        ]
+      },
+      {
+        id: "elasticsearch",
+        category: "databases",
+        name: "ElasticSearch",
+        icon: "fa-solid fa-magnifying-glass",
+        color: "#005571",
+        periods: [
+          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS / UFRN: Indexação de dados e buscas complexas em ecossistemas de Saúde Digital (AVASUS, PNTD)" }
+        ]
+      },
+      {
+        id: "redis",
+        category: "databases",
+        name: "Redis",
+        icon: "fa-solid fa-memory",
+        color: "#DC382D",
+        periods: [
+          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS & NEES: Caching de alta performance e Broker de filas Celery em arquiteturas Python/Django" }
+        ]
+      },
+      {
+        id: "frontend",
+        category: "frontend",
+        name: "Frontend (JS / Vue / ExtJS)",
+        icon: "fa-brands fa-vuejs",
+        color: "#818cf8",
+        periods: [
+          { start: 2004 + 8/12, end: 2009 + 1/12, dateLabel: "2004 - 2009", detail: "FNDE: ExtJS (Rich Internet Applications)" },
+          { start: 2010, end: 2013, dateLabel: "2010 - 2013", detail: "TSE: jQuery & interfaces interativas" },
+          { start: 2015, end: 2026.5, dateLabel: "2015 - Presente", detail: "LAIS & IFRN: JavaScript, Vue.js, Tailwind, HTML5/CSS3" }
+        ]
+      }
+    ];
+
+    // Render Timeline Header Years
+    const yearsHeader = document.getElementById('ganttYearsHeader');
+    const displayYears = [1996, 2000, 2005, 2010, 2015, 2020, 2025, 2026];
+    
+    displayYears.forEach(yr => {
+      const yearTick = document.createElement('div');
+      yearTick.className = 'year-tick';
+      yearTick.textContent = yr;
+      const pct = ((yr - START_YEAR) / TOTAL_YEARS) * 100;
+      yearTick.style.flex = yr === 2026 ? "0.5" : "1";
+      yearsHeader.appendChild(yearTick);
+    });
+
+    // Render Gantt Rows
+    const ganttBody = document.getElementById('ganttBody');
+    const tooltip = document.getElementById('ganttTooltip');
+    const tooltipTitle = document.getElementById('tooltipTitle');
+    const tooltipDate = document.getElementById('tooltipDate');
+    const tooltipDetail = document.getElementById('tooltipDetail');
+
+    function renderGantt(filterCategory = 'all') {
+      ganttBody.innerHTML = '';
+
+      const filteredItems = filterCategory === 'all' 
+        ? ganttItems 
+        : ganttItems.filter(item => item.category === filterCategory);
+
+      filteredItems.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'gantt-row';
+
+        // Label
+        const label = document.createElement('div');
+        label.className = 'gantt-label';
+        label.innerHTML = `<i class="${item.icon}"></i> ${item.name}`;
+        row.appendChild(label);
+
+        // Track
+        const track = document.createElement('div');
+        track.className = 'gantt-track';
+
+        // Bars
+        item.periods.forEach(p => {
+          const bar = document.createElement('div');
+          bar.className = 'gantt-bar';
+          
+          const leftPct = Math.max(0, ((p.start - START_YEAR) / TOTAL_YEARS) * 100);
+          const widthPct = Math.min(100 - leftPct, ((p.end - p.start) / TOTAL_YEARS) * 100);
+
+          bar.style.left = `${leftPct}%`;
+          bar.style.width = `${widthPct}%`;
+          bar.style.setProperty('--bar-color', item.color);
+          bar.textContent = p.dateLabel;
+
+          // Tooltip Events
+          bar.addEventListener('mouseenter', (e) => {
+            tooltipTitle.textContent = `${item.name}`;
+            tooltipDate.textContent = p.dateLabel;
+            tooltipDetail.textContent = p.detail;
+            tooltip.classList.add('visible');
+          });
+
+          bar.addEventListener('mousemove', (e) => {
+            tooltip.style.left = `${e.pageX + 15}px`;
+            tooltip.style.top = `${e.pageY + 15}px`;
+          });
+
+          bar.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('visible');
+          });
+
+          track.appendChild(bar);
+        });
+
+        row.appendChild(track);
+        ganttBody.appendChild(row);
+      });
+    }
+
+    // Filter Button Clicks
+    const filterGroup = document.getElementById('ganttFilterGroup');
+    filterGroup.addEventListener('click', (e) => {
+      if (e.target.classList.contains('filter-btn')) {
+        filterGroup.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        const filterVal = e.target.getAttribute('data-filter');
+        renderGantt(filterVal);
+      }
+    });
+
+    // Initial Gantt Render
+    renderGantt('all');
+  </script>
+</body>
+</html>
