@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kelson da Costa Medeiros | Redirecionando / Redirecting...</title>
+  <meta name="description" content="Kelson da Costa Medeiros - Online Resume & Technological Journey" />
+  <meta name="author" content="Kelson da Costa Medeiros" />
+  
+  <!-- Redirection script executed immediately -->
+  <script>
+    (function() {
+      var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      var target = userLang.startsWith('pt') ? 'br/index.html' : 'en/index.html';
+      window.location.replace(target);
+    })();
+  </script>
+
+  <!-- Fallback meta refresh (if JS is disabled or delayed) -->
+  <noscript>
+    <meta http-equiv="refresh" content="3;url=br/index.html" />
+  </noscript>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-main, #0f172a);
+      color: var(--text-main, #f8fafc);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .redirect-card {
+      background: var(--bg-card, #1e293b);
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    }
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--primary, #3b82f6);
+      margin: 0 auto 20px;
+      display: block;
+      object-fit: cover;
+    }
+    .redirect-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .redirect-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-dim, #94a3b8);
+      margin-bottom: 24px;
+    }
+    .lang-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+    }
+    .lang-btn-pt {
+      background: var(--primary, #3b82f6);
+      color: #ffffff;
+    }
+    .lang-btn-pt:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    .lang-btn-en {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      color: var(--text-main, #f8fafc);
+    }
+    .lang-btn-en:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary, #3b82f6);
+      transform: translateY(-2px);
+    }
+    .spinner {
+      margin: 0 auto 20px;
+      width: 28px;
+      height: 28px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      border-top-color: var(--primary, #3b82f6);
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="redirect-card">
+    <img src="profile.png" alt="Kelson da Costa Medeiros" class="profile-avatar" />
+    <h1 class="redirect-title">Kelson Medeiros</h1>
+    <p class="redirect-subtitle">Redirecionando automaticamente... / Redirecting automatically...</p>
+    
+    <div class="spinner"></div>
+
+    <div class="lang-options">
+      <a href="br/index.html" class="lang-btn lang-btn-pt">
+        <i class="fa-solid fa-globe"></i> Português (Brasil)
+      </a>
+      <a href="en/index.html" class="lang-btn lang-btn-en">
+        <i class="fa-solid fa-globe"></i> English
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
