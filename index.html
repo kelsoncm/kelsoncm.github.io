@@ -18,879 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <style>
-    /* Global Design System & Variables */
-    :root {
-      --bg-main: #0a0e17;
-      --bg-card: #111827;
-      --bg-card-hover: #1f293d;
-      --bg-card-glass: rgba(17, 24, 39, 0.75);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(56, 189, 248, 0.2);
-      
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-dim: #6b7280;
-      
-      --primary: #38bdf8;
-      --primary-hover: #0284c7;
-      --secondary: #818cf8;
-      --accent: #f43f5e;
-      --success: #10b981;
-      --warning: #f59e0b;
-      
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-full: 9999px;
-      
-      --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.15);
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    [data-theme="light"] {
-      --bg-main: #f8fafc;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f1f5f9;
-      --bg-card-glass: rgba(255, 255, 255, 0.85);
-      --border-color: rgba(0, 0, 0, 0.08);
-      --border-accent: rgba(2, 132, 199, 0.2);
-      
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-dim: #94a3b8;
-      
-      --primary: #0284c7;
-      --secondary: #4f46e5;
-      --shadow-glow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    code, pre {
-      font-family: 'Fira Code', monospace;
-    }
-
-    /* Container & Layout */
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Navigation Bar */
-    header.navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: var(--bg-card-glass);
-      border-bottom: 1px solid var(--border-color);
-      padding: 16px 0;
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 1.15rem;
-    }
-
-    .brand-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .theme-toggle-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .theme-toggle-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 64px 0 48px;
-      position: relative;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    .profile-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      text-align: center;
-      position: sticky;
-      top: 96px;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .profile-img-wrapper {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--primary);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    }
-
-    .badge-status {
-      position: absolute;
-      bottom: 8px;
-      right: 12px;
-      background: var(--success);
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      font-weight: 600;
-      border: 2px solid var(--bg-card);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #fff;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-
-    .profile-name {
-      font-size: 1.4rem;
-      font-weight: 800;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-
-    .profile-title {
-      color: var(--primary);
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .location-tag {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 16px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .social-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* Hero Bio & Stats */
-    .hero-info {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .hero-badge-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid var(--border-accent);
-      color: var(--primary);
-      border-radius: var(--radius-full);
-      font-size: 0.85rem;
-      font-weight: 700;
-      width: fit-content;
-    }
-
-    .hero-headline {
-      font-size: 2.2rem;
-      font-weight: 800;
-      line-height: 1.25;
-      background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-summary {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 18px 14px;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .stat-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--primary);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Section Component */
-    section.section-block {
-      padding: 48px 0;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .section-header {
-      margin-bottom: 32px;
-    }
-
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-main);
-    }
-
-    .section-title i {
-      color: var(--primary);
-    }
-
-    .section-subtitle {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-top: 6px;
-    }
-
-    /* Gantt Chart Styled & Modern */
-    .gantt-wrapper {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-glow);
-      overflow-x: auto;
-    }
-
-    .gantt-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .gantt-filter-btns {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-
-    .gantt-container {
-      min-width: 800px;
-      position: relative;
-    }
-
-    /* Gantt Years Header */
-    .gantt-timeline-header {
-      display: flex;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-      padding-left: 200px;
-      position: relative;
-    }
-
-    .year-tick {
-      flex: 1;
-      text-align: left;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      position: relative;
-    }
-
-    .year-tick::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -14px;
-      width: 1px;
-      height: 8px;
-      background: var(--border-color);
-    }
-
-    /* Gantt Body Rows */
-    .gantt-body {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .gantt-row {
-      display: flex;
-      align-items: center;
-      height: 38px;
-      position: relative;
-    }
-
-    .gantt-label {
-      width: 200px;
-      min-width: 200px;
-      padding-right: 16px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .gantt-label i {
-      width: 18px;
-      color: var(--primary);
-      text-align: center;
-    }
-
-    .gantt-track {
-      flex: 1;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: var(--radius-sm);
-      position: relative;
-      border: 1px dashed rgba(255, 255, 255, 0.05);
-    }
-
-    .gantt-bar {
-      position: absolute;
-      height: 28px;
-      top: 5px;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--bar-color), var(--bar-color-light, var(--bar-color)));
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      display: flex;
-      align-items: center;
-      padding: 0 10px;
-      color: #fff;
-      font-size: 0.72rem;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .gantt-bar:hover {
-      transform: scaleY(1.1) translateY(-1px);
-      filter: brightness(1.25);
-      z-index: 10;
-    }
-
-    /* Gantt Tooltip */
-    .gantt-tooltip {
-      position: absolute;
-      z-index: 1000;
-      background: #0f172a;
-      border: 1px solid var(--primary);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      color: #fff;
-      font-size: 0.82rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      max-width: 320px;
-    }
-
-    .gantt-tooltip.visible {
-      opacity: 1;
-    }
-
-    .gantt-tooltip-title {
-      font-weight: 800;
-      color: var(--primary);
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    .gantt-tooltip-date {
-      color: var(--secondary);
-      font-weight: 600;
-      font-size: 0.78rem;
-      margin-bottom: 6px;
-    }
-
-    /* Experience Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 50%, rgba(255, 255, 255, 0.05) 100%);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 36px;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -28px;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      border: 3px solid var(--primary);
-      box-shadow: 0 0 10px var(--primary);
-      transition: var(--transition);
-    }
-
-    .timeline-item:hover .timeline-dot {
-      background: var(--primary);
-      transform: scale(1.2);
-    }
-
-    .timeline-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      transition: var(--transition);
-    }
-
-    .timeline-card:hover {
-      border-color: var(--border-accent);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .role-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    .company-name {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .date-badge {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .timeline-desc {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .timeline-bullets {
-      margin-left: 20px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-
-    .timeline-bullets li {
-      margin-bottom: 6px;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tech-tag {
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid var(--border-accent);
-      color: var(--primary);
-      padding: 3px 10px;
-      border-radius: var(--radius-sm);
-      font-size: 0.76rem;
-      font-weight: 600;
-    }
-
-    /* PyPI & GitHub Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
-    }
-
-    .project-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .project-name {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .project-badges {
-      display: flex;
-      gap: 6px;
-    }
-
-    .badge-pypi {
-      background: #3776AB;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: var(--radius-sm);
-      font-weight: 700;
-    }
-
-    .badge-cov {
-      background: #10b981;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: var(--radius-sm);
-      font-weight: 700;
-    }
-
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-      margin-bottom: 16px;
-    }
-
-    .project-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-color);
-      padding-top: 12px;
-      font-size: 0.8rem;
-    }
-
-    .project-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Skills Grid */
-    .skills-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .skill-cat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 20px;
-    }
-
-    .skill-cat-title {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .skill-pill {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 6px 12px;
-      border-radius: var(--radius-md);
-      font-size: 0.82rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* Academic & Certifications */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .edu-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 20px;
-    }
-
-    .edu-degree {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 4px;
-    }
-
-    .edu-institution {
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.88rem;
-      margin-bottom: 8px;
-    }
-
-    .edu-period {
-      color: var(--text-dim);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer.footer-block {
-      padding: 40px 0;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .profile-card {
-        position: relative;
-        top: 0;
-      }
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -1309,148 +437,6 @@
     </div>
   </section>
 
-  <!-- Projects & PyPI Packages -->
-  <section class="section-block" id="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i class="fa-solid fa-cubes"></i> Pacotes PyPI, Open Source & Ecossistema
-        </h2>
-        <p class="section-subtitle">
-          Bibliotecas publicadas no PyPI com 100% de cobertura de testes e ecossistema de extensões Moodle/Django.
-        </p>
-      </div>
-
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-brands fa-python"></i> python-sc4py</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">PyPI v1.1.9</span>
-                <span class="badge-cov">100% Cobertura</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Utilitários Python para data/hora, parsing de variáveis de ambiente, carregamento dinâmico de classes, percentuais e manipulação de ZIPs em memória.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Python 3.10 - 3.14</span>
-            <a href="https://github.com/kelsoncm/python-sc4py" target="_blank" rel="noopener" class="project-link">
-              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-brands fa-python"></i> python-sc4net</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">PyPI v1.2.0</span>
-                <span class="badge-cov">100% Cobertura</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Helpers de rede para downloads HTTP(S) e FTP com leitores nativos de dados JSON e arquivos ZIP comprimidos.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Python 3.10 - 3.14</span>
-            <a href="https://github.com/kelsoncm/python-sc4net" target="_blank" rel="noopener" class="project-link">
-              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-brands fa-python"></i> pyfwf</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">PyPI v1.0.4</span>
-                <span class="badge-cov">100% Cobertura</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Biblioteca completa para parsing e manipulação de arquivos de largura fixa (Fixed Width Files - FWF).
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Python 3.10 - 3.14</span>
-            <a href="https://github.com/kelsoncm/pyfwf" target="_blank" rel="noopener" class="project-link">
-              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-solid fa-shield-halved"></i> django-sabia-auth & suap-auth</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">PyPI</span>
-                <span class="badge-cov">MIT</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Módulos de autenticação OAuth2 para integração do Django com as plataformas Sabiá e SUAP.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Django / Auth</span>
-            <a href="https://github.com/kelsoncm" target="_blank" rel="noopener" class="project-link">
-              Ver Repositórios <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-solid fa-graduation-cap"></i> Moodle Extensions</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">GPL v3</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Suíte de plugins Moodle incluindo <code style="color:var(--primary);">tiny_justify</code>, <code style="color:var(--primary);">tool_sentry</code>, <code style="color:var(--primary);">mod_attendance_suap</code> e <code style="color:var(--primary);">tool_sga</code>.
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Moodle 4.x - 5.x</span>
-            <a href="https://github.com/kelsoncm" target="_blank" rel="noopener" class="project-link">
-              Ver no Moodle.org / GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-header">
-              <h3 class="project-name"><i class="fa-solid fa-palette"></i> superset-theme-dsgovbr</h3>
-              <div class="project-badges">
-                <span class="badge-pypi">Open Source</span>
-              </div>
-            </div>
-            <p class="project-desc">
-              Tema customizado para Apache Superset no padrão do Design System do Governo Federal do Brasil (DSGovBR).
-            </p>
-          </div>
-          <div class="project-footer">
-            <span class="tech-tag">Superset / DSGovBR</span>
-            <a href="https://github.com/kelsoncm/superset-theme-dsgovbr" target="_blank" rel="noopener" class="project-link">
-              Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- Skills Breakdown -->
   <section class="section-block" id="skills">
     <div class="container">
@@ -1514,15 +500,15 @@
     </div>
   </section>
 
-  <!-- Education & Certifications -->
+  <!-- Education -->
   <section class="section-block" id="education">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">
-          <i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica & Certificações
+          <i class="fa-solid fa-graduation-cap"></i> Formação Acadêmica
         </h2>
         <p class="section-subtitle">
-          Títulos acadêmicos e certificações internacionais em segurança de software.
+          Títulos acadêmicos.
         </p>
       </div>
 
@@ -1542,6 +528,23 @@
           <span class="edu-period">2008 - 2010</span>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section-block" id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-graduation-cap"></i> Certificações
+        </h2>
+        <p class="section-subtitle">
+          Certificações diversas.
+        </p>
+      </div>
+
+      <div class="edu-grid">
         <div class="edu-card">
           <h3 class="edu-degree">Certificações & Treinamentos de Segurança</h3>
           <p class="edu-institution">The Linux Foundation & OWASP</p>
@@ -1549,10 +552,1117 @@
             <li>LFD121: Developing Secure Software</li>
             <li>LFD125: Security for Software Development Managers</li>
             <li>SKF100: Understanding the OWASP Top 10 Security Threats</li>
-            <li>Organizador / Atividade SEMEAD 2024</li>
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Projects by organization -->
+  <section class="section-block" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fa-solid fa-cubes"></i> Projetos de código aberto
+        </h2>
+        <p class="section-subtitle">
+          Projetos de código aberto por organizados por organização no GitHub.
+        </p>
+      </div>
+
+      <!-- django-by-kelsoncm -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-brands fa-python"></i>
+            <a href="https://github.com/django-by-kelsoncm" target="_blank" rel="noopener">django-by-kelsoncm</a>
+          </h3>
+          <span class="org-badge-count">10 repositórios</span>
+          <div class="org-desc">Ecossistema Django, temas administrativos (DSGovBR/AdminLTE3), suporte a auth (Gov.br, Sabiá, SUAP) e rule engine.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-shield-halved"></i> django-auth-govbr</h4>
+                <div class="project-badges"><span class="badge-pypi">PyPI</span></div>
+              </div>
+              <p class="project-desc">Backend de autenticação Django extensível e moderno para integração com o Login Único do Governo Federal (Gov.br) via OpenID Connect (OIDC) com PKCE.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / OIDC</span>
+              <a href="https://github.com/django-by-kelsoncm/django-auth-govbr" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-hospital-user"></i> django-auth-sabia</h4>
+                <div class="project-badges"><span class="badge-pypi">PyPI</span></div>
+              </div>
+              <p class="project-desc">Backend de autenticação OAuth2 do Django para integração com o Sabiá, o provedor de identidade do SUS (Sistema Único de Saúde).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / Auth</span>
+              <a href="https://github.com/django-by-kelsoncm/django-auth-sabia" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-graduation-cap"></i> django-auth-suap</h4>
+                <div class="project-badges"><span class="badge-pypi">PyPI</span></div>
+              </div>
+              <p class="project-desc">Backend de autenticação OAuth2 do Django para SUAP (Sistema Unificado de Administração Pública), o sistema de gestão acadêmica do IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / SUAP</span>
+              <a href="https://github.com/django-by-kelsoncm/django-auth-suap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-sliders"></i> django-rule-engine</h4>
+                <div class="project-badges"><span class="badge-pypi">PyPI</span></div>
+              </div>
+              <p class="project-desc">Campo e widget Django com editor visual moderno, validação em tempo real e API para regras de negócio dinâmicas.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / Rule Engine</span>
+              <a href="https://github.com/django-by-kelsoncm/django-rule-engine" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-palette"></i> django-admintheme-dsgovbr</h4>
+              </div>
+              <p class="project-desc">Pacote Django para integração da interface administrativa com o Design System do Governo Federal Brasileiro (DS Gov.BR).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / DSGovBR</span>
+              <a href="https://github.com/django-by-kelsoncm/django-admintheme-dsgovbr" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-palette"></i> django-admintheme-adminlte3</h4>
+              </div>
+              <p class="project-desc">Tema moderno baseado no AdminLTE 3 adaptado nativamente para a interface do Django Admin.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / AdminLTE3</span>
+              <a href="https://github.com/django-by-kelsoncm/django-admintheme-adminlte3" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-vial"></i> django-admintheme-sandbox</h4>
+              </div>
+              <p class="project-desc">Pacote Django para ambiente de sandbox e referência visual/funcional de temas para Django Admin.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / UI Testing</span>
+              <a href="https://github.com/django-by-kelsoncm/django-admintheme-sandbox" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-file-signature"></i> django-project-processo-seletivo</h4>
+              </div>
+              <p class="project-desc">Sistema web para gestão completa de processos seletivos, inscrições, avaliações, recursos e resultados (Django, Celery, Gov.br, SUAP).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / REST / Celery</span>
+              <a href="https://github.com/django-by-kelsoncm/django-project-processo-seletivo" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-database"></i> django-wrapper-moodle</h4>
+              </div>
+              <p class="project-desc">Mapeamento ORM nativo em Django para acesso e consultas ao banco de dados do Moodle.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / Moodle</span>
+              <a href="https://github.com/django-by-kelsoncm/django-wrapper-moodle" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- suap-ava-suite -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-network-wired"></i>
+            <a href="https://github.com/suap-ava-suite" target="_blank" rel="noopener">suap-ava-suite</a>
+          </h3>
+          <span class="org-badge-count">12 repositórios</span>
+          <div class="org-desc">Ecossistema de middlewares Django e plugins Moodle para integração acadêmica (SUAP / SIGAA / qAcadêmico).</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-plug"></i> djangoapp-integrador_ava</h4>
+              </div>
+              <p class="project-desc">Middleware de conexão entre Sistemas de Gestão Acadêmica (SUAP, SIGAA, qAcadêmico) e o Moodle, pronto de fábrica para o IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / Middleware</span>
+              <a href="https://github.com/suap-ava-suite/djangoapp-integrador_ava" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-table-columns"></i> djangoapp-painel_ava</h4>
+              </div>
+              <p class="project-desc">Dashboard com visualização centralizada de cursos e inscrições de múltiplos ambientes virtuais Moodle integrados.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django / Dashboard</span>
+              <a href="https://github.com/suap-ava-suite/djangoapp-painel_ava" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-python"></i> pypkg-avaintegration_metapackage</h4>
+              </div>
+              <p class="project-desc">Meta-pacote Python 3.14 que agrega todas as dependências para os projetos Django 6.0 da suíte AVA do IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python 3.14 / Meta-pkg</span>
+              <a href="https://github.com/suap-ava-suite/pypkg-avaintegration_metapackage" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-graduation-cap"></i> moodle-local_suap</h4>
+              </div>
+              <p class="project-desc">Plugin local Moodle responsável pelo núcleo da integração com o SUAP, realizando a sincronização bidirecional de dados acadêmicos.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Local</span>
+              <a href="https://github.com/suap-ava-suite/moodle-local_suap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-key"></i> moodle-auth_suap</h4>
+              </div>
+              <p class="project-desc">Plugin de autenticação OAuth2 do SUAP no Moodle, com login unificado e sincronização de dados de perfil e foto.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Auth</span>
+              <a href="https://github.com/suap-ava-suite/moodle-auth_suap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-gears"></i> moodle-tool_sga</h4>
+              </div>
+              <p class="project-desc">Plugin Admin Tool do Moodle que disponibiliza API REST para sincronização de dados do Sistema de Gestão Acadêmica.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Admin Tool</span>
+              <a href="https://github.com/suap-ava-suite/moodle-tool_sga" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-border-all"></i> moodle-tool_painelava</h4>
+              </div>
+              <p class="project-desc">Plugin Admin Tool Moodle para integração e comunicação com a plataforma Painel AVA.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Admin Tool</span>
+              <a href="https://github.com/suap-ava-suite/moodle-tool_painelava" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-user-check"></i> moodle-mod_attendance_suap</h4>
+              </div>
+              <p class="project-desc">Módulo Moodle de controle de frequência de alunos integrado ao SUAP.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Module</span>
+              <a href="https://github.com/suap-ava-suite/moodle-mod_attendance_suap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-pen-nib"></i> moodle-tool_authors</h4>
+              </div>
+              <p class="project-desc">Plugin Moodle Admin Tool para cadastramento e gestão de autores de cursos e conteúdos.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Admin Tool</span>
+              <a href="https://github.com/suap-ava-suite/moodle-tool_authors" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-cloud-arrow-up"></i> cdn-suap_ava_suite</h4>
+              </div>
+              <p class="project-desc">Repositório de assets estáticos (CDN) compartilhados entre todos os componentes da suíte SUAP-AVA.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">CDN / Static Assets</span>
+              <a href="https://github.com/suap-ava-suite/cdn-suap_ava_suite" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-mobile-screen"></i> mobileapp-moodle <span class="badge-fork">fork</span></h4>
+              </div>
+              <p class="project-desc">Fork customizado do Moodle App adaptado para integração com a arquitetura SUAP-AVA do IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Mobile / Ionic</span>
+              <a href="https://github.com/suap-ava-suite/mobileapp-moodle" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- moodle-by-kelsoncm -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <a href="https://github.com/moodle-by-kelsoncm" target="_blank" rel="noopener">moodle-by-kelsoncm</a>
+          </h3>
+          <span class="org-badge-count">13 repositórios</span>
+          <div class="org-desc">Extensões, plugins de editores (TinyMCE, TipTap, Atto), migração de BD e ferramentas CLI para Moodle.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-align-justify"></i> tiny_justify</h4>
+              </div>
+              <p class="project-desc">Plugin Moodle que adiciona o botão de alinhamento justificado ao editor TinyMCE v6+ do Moodle 4.1+.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">TinyMCE / Moodle</span>
+              <a href="https://github.com/moodle-by-kelsoncm/tiny_justify" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-file-pen"></i> editor_tiptap</h4>
+              </div>
+              <p class="project-desc">Plugin de editor de texto rico baseado na biblioteca TipTap para a plataforma Moodle.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">TipTap / Moodle</span>
+              <a href="https://github.com/moodle-by-kelsoncm/editor_tiptap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-wrench"></i> local_tinytoolbar</h4>
+              </div>
+              <p class="project-desc">Plugin local Moodle que permite administradores configurarem e personalizarem a barra de ferramentas do TinyMCE.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Local</span>
+              <a href="https://github.com/moodle-by-kelsoncm/local_tinytoolbar" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-filter"></i> tool_participantscustomfilter</h4>
+              </div>
+              <p class="project-desc">Plugin local Moodle que adiciona filtro por campos personalizados do perfil de usuário na listagem de participantes.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Plugin</span>
+              <a href="https://github.com/moodle-by-kelsoncm/tool_participantscustomfilter" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-user-plus"></i> tool_bulkclienrolment</h4>
+              </div>
+              <p class="project-desc">Ferramenta CLI para realização de matrículas em lote no Moodle via linha de comando.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">CLI / Moodle</span>
+              <a href="https://github.com/moodle-by-kelsoncm/tool_bulkclienrolment" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-database"></i> tool_dbmigrate</h4>
+              </div>
+              <p class="project-desc">Ferramenta CLI para migração de banco de dados do Moodle (ex: conversão segura de MySQL para PostgreSQL).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">CLI / Migration</span>
+              <a href="https://github.com/moodle-by-kelsoncm/tool_dbmigrate" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-image"></i> mod_imagemap</h4>
+              </div>
+              <p class="project-desc">Módulo Moodle de mapa de imagem interativo com suporte a liberação condicional baseada na conclusão de atividades.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Module</span>
+              <a href="https://github.com/moodle-by-kelsoncm/mod_imagemap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-lightbulb"></i> block_recommendation</h4>
+              </div>
+              <p class="project-desc">Bloco Moodle para recomendação inteligente de conteúdos e atividades para estudantes.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Block</span>
+              <a href="https://github.com/moodle-by-kelsoncm/block_recommendation" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-code"></i> profilefield_json</h4>
+              </div>
+              <p class="project-desc">Campo customizado do perfil de usuário no Moodle que armazena e valida estruturas de dados em JSON.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Profile Field</span>
+              <a href="https://github.com/moodle-by-kelsoncm/profilefield_json" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-align-justify"></i> atto_justify</h4>
+              </div>
+              <p class="project-desc">Plugin de alinhamento justificado para o editor Atto no Moodle (moodle.org/plugins/atto_justify).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Atto / Moodle</span>
+              <a href="https://github.com/moodle-by-kelsoncm/atto_justify" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-box-archive"></i> tool_brcli <span class="badge-fork">fork</span></h4>
+              </div>
+              <p class="project-desc">Interface CLI no Moodle para backup e restauração em lote de categorias completas de cursos.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle CLI</span>
+              <a href="https://github.com/moodle-by-kelsoncm/tool_brcli" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-docker"></i> docker-compose</h4>
+              </div>
+              <p class="project-desc">Ambiente containerizado Docker e Docker Compose configurado para desenvolvimento e execução do Moodle.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Docker / DevOps</span>
+              <a href="https://github.com/moodle-by-kelsoncm/docker-compose" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- fixed-width-file -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-file-code"></i>
+            <a href="https://github.com/fixed-width-file" target="_blank" rel="noopener">fixed-width-file</a>
+          </h3>
+          <span class="org-badge-count">6 repositórios</span>
+          <div class="org-desc">Bibliotecas multi-linguagem para leitura, validação e geração de arquivos de largura fixa (FWF).</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-python"></i> python-pyfwf</h4>
+                <div class="project-badges"><span class="badge-pypi">PyPI</span></div>
+              </div>
+              <p class="project-desc">Biblioteca Python para parsing, validação e manipulação de arquivos de largura fixa (Fixed Width Files - FWF).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python 3.10+</span>
+              <a href="https://github.com/fixed-width-file/python-pyfwf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-java"></i> java-fwf</h4>
+              </div>
+              <p class="project-desc">Biblioteca Java de alta performance e type-safe para parsing, hidratação, validação e exportação de arquivos FWF.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Java</span>
+              <a href="https://github.com/fixed-width-file/java-fwf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-js"></i> javascript-fwf</h4>
+              </div>
+              <p class="project-desc">Utilitários em JavaScript para processamento e manipulação de arquivos de largura fixa.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">JavaScript / Node</span>
+              <a href="https://github.com/fixed-width-file/javascript-fwf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-php"></i> php-fwf</h4>
+              </div>
+              <p class="project-desc">Utilitários em PHP para leitura, validação e escrita de arquivos de largura fixa.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">PHP</span>
+              <a href="https://github.com/fixed-width-file/php-fwf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-vial"></i> fwf-compliance-tests</h4>
+              </div>
+              <p class="project-desc">Suíte universal de testes de conformidade para validar a precisão de parsers FWF em diferentes linguagens.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Compliance / Testing</span>
+              <a href="https://github.com/fixed-width-file/fwf-compliance-tests" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- proitec-moodle-suite -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-gamepad"></i>
+            <a href="https://github.com/proitec-moodle-suite" target="_blank" rel="noopener">proitec-moodle-suite</a>
+          </h3>
+          <span class="org-badge-count">6 repositórios</span>
+          <div class="org-desc">Módulos Moodle de gamificação, acompanhamento de progresso e engajamento do curso ProITEC do IFRN.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-chart-line"></i> moodle-mod_multiprogress</h4>
+              </div>
+              <p class="project-desc">Módulo de atividade para o Moodle que proporciona visualização clara e consolidada do progresso individual nas trilhas de aprendizagem.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Module</span>
+              <a href="https://github.com/proitec-moodle-suite/moodle-mod_multiprogress" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-award"></i> moodle-mod_medalhasproitec</h4>
+              </div>
+              <p class="project-desc">Módulo de gamificação Moodle com sistema de conquistas e medalhas para engajar os alunos do ProITEC.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Gamificação / Moodle</span>
+              <a href="https://github.com/proitec-moodle-suite/moodle-mod_medalhasproitec" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-map-location-dot"></i> moodle-mod_mapaproitec</h4>
+              </div>
+              <p class="project-desc">Módulo de atividade de mapa interativo de conhecimento desenvolvido para o curso autoinstrucional ProITEC do IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Module</span>
+              <a href="https://github.com/proitec-moodle-suite/moodle-mod_mapaproitec" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-gem"></i> moodle-mod_codexproitec</h4>
+              </div>
+              <p class="project-desc">Módulo de gamificação para gerenciar a coleção de Gemas do Conhecimento e recompensa final dos estudantes no ProITEC.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Gamificação / Moodle</span>
+              <a href="https://github.com/proitec-moodle-suite/moodle-mod_codexproitec" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-cubes"></i> moodle-block_multiprogress</h4>
+              </div>
+              <p class="project-desc">Bloco Moodle histórico substituído funcionalmente pelo módulo mod_multiprogress.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Block</span>
+              <a href="https://github.com/proitec-moodle-suite/moodle-block_multiprogress" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- suap-moodletheme-suite -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-palette"></i>
+            <a href="https://github.com/suap-moodletheme-suite" target="_blank" rel="noopener">suap-moodletheme-suite</a>
+          </h3>
+          <span class="org-badge-count">5 repositórios</span>
+          <div class="org-desc">Tema visual e blocos de apoio para Moodle no padrão do SUAP e identidade do IFRN.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-paint-roller"></i> moodle-theme_suap</h4>
+              </div>
+              <p class="project-desc">Tema Moodle oficial customizado com a identidade e experiência visual do SUAP / IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Theme</span>
+              <a href="https://github.com/suap-moodletheme-suite/moodle-theme_suap" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-circle-info"></i> moodle-block_site_info</h4>
+              </div>
+              <p class="project-desc">Bloco Moodle para exibição parametrizada de informações institucionais do site.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Block</span>
+              <a href="https://github.com/suap-moodletheme-suite/moodle-block_site_info" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-images"></i> moodle-block_course_gallery</h4>
+              </div>
+              <p class="project-desc">Bloco Moodle para exibição de galeria interativa de cursos em destaque no ambiente.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Block</span>
+              <a href="https://github.com/suap-moodletheme-suite/moodle-block_course_gallery" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-star"></i> moodle-block_course_rating</h4>
+              </div>
+              <p class="project-desc">Bloco Moodle para avaliação e feedback contínuo dos cursos pelos estudantes.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle Block</span>
+              <a href="https://github.com/suap-moodletheme-suite/moodle-block_course_rating" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- abrasileirado -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-flag"></i>
+            <a href="https://github.com/abrasileirado" target="_blank" rel="noopener">abrasileirado</a>
+          </h3>
+          <span class="org-badge-count">8 repositórios</span>
+          <div class="org-desc">Bibliotecas e utilitários para validações e formatações no padrão brasileiro (CPF, CNPJ, DATASUS DBC/DBF).</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-python"></i> python_abrasileirado</h4>
+              </div>
+              <p class="project-desc">Biblioteca Python para validação e tratamento de objetos específicos do Brasil (documentos, telefones, CEP).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python</span>
+              <a href="https://github.com/abrasileirado/python_abrasileirado" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-shield-cat"></i> django_abrasileirado</h4>
+              </div>
+              <p class="project-desc">Aplicação Django com tipos de campos e validadores nativos para o padrão brasileiro.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Django</span>
+              <a href="https://github.com/abrasileirado/django_abrasileirado" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-file-csv"></i> dbc2dbf</h4>
+              </div>
+              <p class="project-desc">Ferramenta para conversão de arquivos comprimidos .dbc com PKWare/DCL (padrão DATASUS) para o formato DBF.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python / DATASUS</span>
+              <a href="https://github.com/abrasileirado/dbc2dbf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-file-zipper"></i> blast-dbf <span class="badge-fork">fork</span></h4>
+              </div>
+              <p class="project-desc">Descompressor de baixo nível em C para arquivos compactados com PKWare DCL / DATASUS.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">C / Decompressor</span>
+              <a href="https://github.com/abrasileirado/blast-dbf" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-java"></i> java_abrasileirado</h4>
+              </div>
+              <p class="project-desc">Biblioteca Java de validações e utilitários específicos do padrão brasileiro.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Java</span>
+              <a href="https://github.com/abrasileirado/java_abrasileirado" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-js"></i> javascript_abrasileirado</h4>
+              </div>
+              <p class="project-desc">Utilitários em JavaScript para validação e formatação de dados no padrão brasileiro no frontend/backend.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">JavaScript</span>
+              <a href="https://github.com/abrasileirado/javascript_abrasileirado" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-php"></i> php_abrasileirado</h4>
+              </div>
+              <p class="project-desc">Biblioteca em PHP para validação e formatação de objetos e campos brasileiros.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">PHP</span>
+              <a href="https://github.com/abrasileirado/php_abrasileirado" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- h5p-companion -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-cubes"></i>
+            <a href="https://github.com/h5p-companion" target="_blank" rel="noopener">h5p-companion</a>
+          </h3>
+          <span class="org-badge-count">12 repositórios</span>
+          <div class="org-desc">Componentes, layouts interativos e editores customizados para expansão da plataforma H5P.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-book-open-reader"></i> CustomizableInteractiveBook</h4>
+              </div>
+              <p class="project-desc">Biblioteca H5P que combina múltiplos tipos de conteúdo em layout vertical, com suporte a aninhamento e reordenação drag-and-drop.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / JS</span>
+              <a href="https://github.com/h5p-companion/CustomizableInteractiveBook" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-table-columns"></i> CustomizableColumn</h4>
+              </div>
+              <p class="project-desc">Biblioteca H5P de layout em coluna vertical flexível com configuração individual de itens e ordenação visual no editor.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / JS</span>
+              <a href="https://github.com/h5p-companion/CustomizableColumn" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-pen-to-square"></i> H5P.TextEditor</h4>
+              </div>
+              <p class="project-desc">Ferramenta H5P de edição de texto rico baseada em TinyMCE para criação intuitiva de conteúdos formatados.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / TinyMCE</span>
+              <a href="https://github.com/h5p-companion/H5P.TextEditor" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-paintbrush"></i> CustomCSS</h4>
+              </div>
+              <p class="project-desc">Biblioteca H5P simples para alteração e injeção dinâmica de estilos CSS em outros tipos de conteúdo H5P existentes.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / CSS</span>
+              <a href="https://github.com/h5p-companion/CustomCSS" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-code"></i> H5P.CodeHighlighter <span class="badge-fork">fork</span></h4>
+              </div>
+              <p class="project-desc">Tipo de conteúdo H5P para exibição de código-fonte (HTML, JS, Python, etc.) com syntax highlighting.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / Syntax</span>
+              <a href="https://github.com/h5p-companion/H5P.CodeHighlighter" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-terminal"></i> H5P.Editor.CodeEditor <span class="badge-fork">fork</span></h4>
+              </div>
+              <p class="project-desc">Editor de código-fonte integrado para a plataforma de criação H5P.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">H5P / Editor</span>
+              <a href="https://github.com/h5p-companion/H5P.Editor.CodeEditor" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- digital-library-suite -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-book-open"></i>
+            <a href="https://github.com/digital-library-suite" target="_blank" rel="noopener">digital-library-suite</a>
+          </h3>
+          <span class="org-badge-count">3 repositórios</span>
+          <div class="org-desc">Plataforma de biblioteca digital, leitores mobile offline de H5P e ferramentas de exportação.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-mobile"></i> h5p-mobilereader</h4>
+              </div>
+              <p class="project-desc">Aplicativo mobile capaz de importar, armazenar e reproduzir conteúdos H5P (foco em Interactive Book) para uso offline.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Mobile / H5P Offline</span>
+              <a href="https://github.com/digital-library-suite/h5p-mobilereader" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-wordpress"></i> h5p-exporter</h4>
+              </div>
+              <p class="project-desc">Plugin WordPress para exportação de conteúdos H5P interativos para pacotes HTML estáticos.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">WordPress / H5P</span>
+              <a href="https://github.com/digital-library-suite/h5p-exporter" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- cte-zl-ifrn -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-building-columns"></i>
+            <a href="https://github.com/cte-zl-ifrn" target="_blank" rel="noopener">cte-zl-ifrn</a>
+          </h3>
+          <span class="org-badge-count">5 repositórios</span>
+          <div class="org-desc">Repositórios de infraestrutura, temas e portais do Campus EaD do IFRN.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-palette"></i> moodle-theme_dsgovbr</h4>
+              </div>
+              <p class="project-desc">Tema Moodle desenvolvido em conformidade com o Design System do Governo Federal (Gov.BR).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Moodle / DSGovBR</span>
+              <a href="https://github.com/cte-zl-ifrn/moodle-theme_dsgovbr" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-docker"></i> docker-moodle</h4>
+              </div>
+              <p class="project-desc">Imagem Docker oficial configurada e otimizada para o Ambiente Virtual de Aprendizagem do IFRN.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Docker / Infrastructure</span>
+              <a href="https://github.com/cte-zl-ifrn/docker-moodle" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-headset"></i> central-ajuda</h4>
+              </div>
+              <p class="project-desc">Portal da Central de Ajuda e base de conhecimento para atendimento e suporte a estudantes EaD.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Portal / Helpdesk</span>
+              <a href="https://github.com/cte-zl-ifrn/central-ajuda" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-icons"></i> if__favicon</h4>
+              </div>
+              <p class="project-desc">Pacote de Favicons padronizados para portais e sistemas do Instituto Federal.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Branding / Assets</span>
+              <a href="https://github.com/cte-zl-ifrn/if__favicon" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- dashboard-ava-suite -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-solid fa-chart-line"></i>
+            <a href="https://github.com/dashboard-ava-suite" target="_blank" rel="noopener">dashboard-ava-suite</a>
+          </h3>
+          <span class="org-badge-count">2 repositórios</span>
+          <div class="org-desc">Projetos de engenharia de dados e extração ELT do Moodle para análise de dados educacionais.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-database"></i> elt-moodle</h4>
+              </div>
+              <p class="project-desc">Pipelines de integração ELT (Extract, Load, Transform) para extração e analytics de dados do Moodle.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">ELT / Data Engineering</span>
+              <a href="https://github.com/dashboard-ava-suite/elt-moodle" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- kelsoncm (Perfil Pessoal) -->
+      <div class="org-group">
+        <div class="org-header">
+          <h3 class="org-title">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/kelsoncm" target="_blank" rel="noopener">kelsoncm (Perfil Pessoal)</a>
+          </h3>
+          <span class="org-badge-count">5 repositórios</span>
+          <div class="org-desc">Pacotes Python publicados no PyPI e repositórios mantidos na conta pessoal.</div>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-python"></i> python-sc4py</h4>
+                <div class="project-badges">
+                  <span class="badge-pypi">PyPI v1.1.9</span>
+                  <span class="badge-cov">100% Cobertura</span>
+                </div>
+              </div>
+              <p class="project-desc">Utilitários Python para data/hora, parsing de variáveis de ambiente, carregamento dinâmico de classes, percentuais e manipulação de ZIPs em memória.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python 3.10 - 3.14</span>
+              <a href="https://github.com/kelsoncm/python-sc4py" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-brands fa-python"></i> python-sc4net</h4>
+                <div class="project-badges">
+                  <span class="badge-pypi">PyPI v1.2.0</span>
+                  <span class="badge-cov">100% Cobertura</span>
+                </div>
+              </div>
+              <p class="project-desc">Helpers de rede para downloads HTTP(S) e FTP com leitores nativos de dados JSON e arquivos ZIP comprimidos.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Python 3.10 - 3.14</span>
+              <a href="https://github.com/kelsoncm/python-sc4net" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-chart-pie"></i> superset-theme-dsgovbr</h4>
+                <div class="project-badges"><span class="badge-pypi">Open Source</span></div>
+              </div>
+              <p class="project-desc">Tema customizado para Apache Superset no padrão do Design System do Governo Federal do Brasil (DSGovBR).</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Superset / DSGovBR</span>
+              <a href="https://github.com/kelsoncm/superset-theme-dsgovbr" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-vial-circle-check"></i> pytest-coverage-gate</h4>
+              </div>
+              <p class="project-desc">Ferramenta de validação de limite mínimo de cobertura de testes (coverage gate) integrada ao Pytest.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">Pytest / Testing</span>
+              <a href="https://github.com/kelsoncm/pytest-coverage-gate" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div>
+              <div class="project-header">
+                <h4 class="project-name"><i class="fa-solid fa-school"></i> SouEdu</h4>
+              </div>
+              <p class="project-desc">Plataforma e ecossistema de soluções de tecnologia para a educação SouEdu.</p>
+            </div>
+            <div class="project-footer">
+              <span class="tech-tag">EduTech / Platform</span>
+              <a href="https://github.com/kelsoncm/SouEdu" target="_blank" rel="noopener" class="project-link">Ver no GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1574,275 +1684,6 @@
   </div>
 
   <!-- JavaScript Logic -->
-  <script>
-    // Theme Toggle Logic
-    const themeToggle = document.getElementById('themeToggle');
-    const htmlEl = document.documentElement;
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      htmlEl.setAttribute('data-theme', newTheme);
-      themeToggle.innerHTML = newTheme === 'light' 
-        ? '<i class="fa-solid fa-sun"></i>' 
-        : '<i class="fa-solid fa-moon"></i>';
-    });
-
-    // Gantt Chart Data Definition (1996 - 2026 = 30 Years Span)
-    const START_YEAR = 1996;
-    const END_YEAR = 2026.5;
-    const TOTAL_YEARS = END_YEAR - START_YEAR;
-
-    const ganttItems = [
-      {
-        id: "delphi",
-        category: "languages",
-        name: "Delphi",
-        icon: "fa-solid fa-code",
-        color: "#E64A19",
-        periods: [
-          { start: 1996 + 9/12, end: 1999 + 10/12, dateLabel: "Out/1996 - Nov/1999", detail: "Poliedro: Sistemas de GED/DMS, Workflow e Delphi 5" },
-          { start: 2002 + 4/12, end: 2009 + 8/12, dateLabel: "Mai/2002 - Set/2009", detail: "FNDE: Sistemas Financeiros SIAFI e Migração Delphi 2005 VCL" }
-        ]
-      },
-      {
-        id: "java",
-        category: "languages",
-        name: "Java",
-        icon: "fa-brands fa-java",
-        color: "#F57C00",
-        periods: [
-          { start: 2004 + 1/12, end: 2013 + 1/12, dateLabel: "Fev/2004 - Fev/2013", detail: "FNDE & TSE: Arquiteto Java, Spring 3, Hibernate, EJB3, JSF, Struts 1/2" }
-        ]
-      },
-      {
-        id: "python",
-        category: "languages",
-        name: "Python / Django",
-        icon: "fa-brands fa-python",
-        color: "#3776AB",
-        periods: [
-          { start: 2014, end: 2026.5, dateLabel: "Jan/2014 - Presente", detail: "IFRN, LAIS & Pacotes PyPI: Django, FastAPI, Celery, sc4py, sc4net" }
-        ]
-      },
-      {
-        id: "php",
-        category: "languages",
-        name: "PHP / Laravel",
-        icon: "fa-brands fa-php",
-        color: "#777BB4",
-        periods: [
-          { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "Abr/2009 - Fev/2010", detail: "Optimedia: PHP 5, Red5 e Plataforma de E-learning" },
-          { start: 2014, end: 2026.5, dateLabel: "Jan/2014 - Presente", detail: "IFRN & LAIS: Moodle Plugins, Laravel, Lumen REST APIs" }
-        ]
-      },
-      {
-        id: "asp",
-        category: "languages",
-        name: "ASP / VB6",
-        icon: "fa-solid fa-window-restore",
-        color: "#00838F",
-        periods: [
-          { start: 1999 + 10/12, end: 2002 + 4/12, dateLabel: "Nov/1999 - Mai/2002", detail: "Zevallos & AgênciaClick: Framework Hipertools VB6, Portais ASP" }
-        ]
-      },
-      {
-        id: "clipper",
-        category: "languages",
-        name: "Clipper",
-        icon: "fa-solid fa-terminal",
-        color: "#795548",
-        periods: [
-          { start: 1996 + 1/12, end: 1996 + 9/12, dateLabel: "Fev/1996 - Out/1996", detail: "Poliedro: Sistemas MS-DOS concorrentes em Rede Novell" }
-        ]
-      },
-      {
-        id: "moodle",
-        category: "platforms",
-        name: "Moodle / EaD",
-        icon: "fa-solid fa-graduation-cap",
-        color: "#F7931E",
-        periods: [
-          { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "2009 - 2010", detail: "Optimedia: Customização de AVA" },
-          { start: 2014, end: 2026.5, dateLabel: "2014 - Presente", detail: "IFRN & LAIS: Dev/Admin Moodle 1.1 até 5.x, Plugins SUAP & Sentry" }
-        ]
-      },
-      {
-        id: "devops",
-        category: "platforms",
-        name: "DevOps & Cloud (AWS/K8s)",
-        icon: "fa-brands fa-aws",
-        color: "#10b981",
-        periods: [
-          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "NEES/MinC & LAIS: AWS EKS, Docker, Terraform, Helm, GitLab CI/CD, Airflow" }
-        ]
-      },
-      {
-        id: "mssql",
-        category: "databases",
-        name: "MS SQL Server",
-        icon: "fa-solid fa-database",
-        color: "#E63946",
-        periods: [
-          { start: 1996 + 9/12, end: 2001 + 4/12, dateLabel: "Out/1996 - Mai/2001", detail: "Poliedro & Zevallos: Desenvolvimento e administração de SGBD MS SQL Server" }
-        ]
-      },
-      {
-        id: "oracle",
-        category: "databases",
-        name: "Oracle DBMS",
-        icon: "fa-solid fa-database",
-        color: "#F80000",
-        periods: [
-          { start: 2001 + 4/12, end: 2013 + 1/12, dateLabel: "Mai/2001 - Fev/2013", detail: "AgênciaClick, FNDE & TSE: Oracle 8i/9i/10g, PL/SQL, Tuning, Clusters e Modelagem OO Relacional" }
-        ]
-      },
-      {
-        id: "mysql",
-        category: "databases",
-        name: "MySQL / MariaDB",
-        icon: "fa-solid fa-database",
-        color: "#00758F",
-        periods: [
-          { start: 1999 + 10/12, end: 2026.5, dateLabel: "Nov/1999 - Presente", detail: "Zevallos, AgênciaClick, Optimedia & LAIS: Portais Web, Sistemas de E-learning e Moodle" }
-        ]
-      },
-      {
-        id: "postgresql",
-        category: "databases",
-        name: "PostgreSQL",
-        icon: "fa-solid fa-database",
-        color: "#336791",
-        periods: [
-          { start: 2004 + 8/12, end: 2026.5, dateLabel: "Set/2004 - Presente", detail: "FNDE, TSE, IFRN (Administrador de SGBD 9.x+ com Alta Disponibilidade e Redundância desde 2014) & LAIS" }
-        ]
-      },
-      {
-        id: "elasticsearch",
-        category: "databases",
-        name: "ElasticSearch",
-        icon: "fa-solid fa-magnifying-glass",
-        color: "#005571",
-        periods: [
-          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS / UFRN: Indexação de dados e buscas complexas em ecossistemas de Saúde Digital (AVASUS, PNTD)" }
-        ]
-      },
-      {
-        id: "redis",
-        category: "databases",
-        name: "Redis",
-        icon: "fa-solid fa-memory",
-        color: "#DC382D",
-        periods: [
-          { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS & NEES: Caching de alta performance e Broker de filas Celery em arquiteturas Python/Django" }
-        ]
-      },
-      {
-        id: "frontend",
-        category: "frontend",
-        name: "Frontend (JS / Vue / ExtJS)",
-        icon: "fa-brands fa-vuejs",
-        color: "#818cf8",
-        periods: [
-          { start: 2004 + 8/12, end: 2009 + 1/12, dateLabel: "2004 - 2009", detail: "FNDE: ExtJS (Rich Internet Applications)" },
-          { start: 2010, end: 2013, dateLabel: "2010 - 2013", detail: "TSE: jQuery & interfaces interativas" },
-          { start: 2015, end: 2026.5, dateLabel: "2015 - Presente", detail: "LAIS & IFRN: JavaScript, Vue.js, Tailwind, HTML5/CSS3" }
-        ]
-      }
-    ];
-
-    // Render Timeline Header Years
-    const yearsHeader = document.getElementById('ganttYearsHeader');
-    const displayYears = [1996, 2000, 2005, 2010, 2015, 2020, 2025, 2026];
-    
-    displayYears.forEach(yr => {
-      const yearTick = document.createElement('div');
-      yearTick.className = 'year-tick';
-      yearTick.textContent = yr;
-      const pct = ((yr - START_YEAR) / TOTAL_YEARS) * 100;
-      yearTick.style.flex = yr === 2026 ? "0.5" : "1";
-      yearsHeader.appendChild(yearTick);
-    });
-
-    // Render Gantt Rows
-    const ganttBody = document.getElementById('ganttBody');
-    const tooltip = document.getElementById('ganttTooltip');
-    const tooltipTitle = document.getElementById('tooltipTitle');
-    const tooltipDate = document.getElementById('tooltipDate');
-    const tooltipDetail = document.getElementById('tooltipDetail');
-
-    function renderGantt(filterCategory = 'all') {
-      ganttBody.innerHTML = '';
-
-      const filteredItems = filterCategory === 'all' 
-        ? ganttItems 
-        : ganttItems.filter(item => item.category === filterCategory);
-
-      filteredItems.forEach(item => {
-        const row = document.createElement('div');
-        row.className = 'gantt-row';
-
-        // Label
-        const label = document.createElement('div');
-        label.className = 'gantt-label';
-        label.innerHTML = `<i class="${item.icon}"></i> ${item.name}`;
-        row.appendChild(label);
-
-        // Track
-        const track = document.createElement('div');
-        track.className = 'gantt-track';
-
-        // Bars
-        item.periods.forEach(p => {
-          const bar = document.createElement('div');
-          bar.className = 'gantt-bar';
-          
-          const leftPct = Math.max(0, ((p.start - START_YEAR) / TOTAL_YEARS) * 100);
-          const widthPct = Math.min(100 - leftPct, ((p.end - p.start) / TOTAL_YEARS) * 100);
-
-          bar.style.left = `${leftPct}%`;
-          bar.style.width = `${widthPct}%`;
-          bar.style.setProperty('--bar-color', item.color);
-          bar.textContent = p.dateLabel;
-
-          // Tooltip Events
-          bar.addEventListener('mouseenter', (e) => {
-            tooltipTitle.textContent = `${item.name}`;
-            tooltipDate.textContent = p.dateLabel;
-            tooltipDetail.textContent = p.detail;
-            tooltip.classList.add('visible');
-          });
-
-          bar.addEventListener('mousemove', (e) => {
-            tooltip.style.left = `${e.pageX + 15}px`;
-            tooltip.style.top = `${e.pageY + 15}px`;
-          });
-
-          bar.addEventListener('mouseleave', () => {
-            tooltip.classList.remove('visible');
-          });
-
-          track.appendChild(bar);
-        });
-
-        row.appendChild(track);
-        ganttBody.appendChild(row);
-      });
-    }
-
-    // Filter Button Clicks
-    const filterGroup = document.getElementById('ganttFilterGroup');
-    filterGroup.addEventListener('click', (e) => {
-      if (e.target.classList.contains('filter-btn')) {
-        filterGroup.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-        const filterVal = e.target.getAttribute('data-filter');
-        renderGantt(filterVal);
-      }
-    });
-
-    // Initial Gantt Render
-    renderGantt('all');
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
