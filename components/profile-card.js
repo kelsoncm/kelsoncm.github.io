@@ -2,6 +2,11 @@
  * ProfileCard Web Component (<profile-card>)
  * Reusable profile card sidebar for resumes, portfolios, and personal websites.
  * 
+ * CSS Customization Options:
+ * - Default: Automatically loads 'profile-card.css'
+ * - Custom CSS URL: Add attribute `css-url="path/to/custom.css"`
+ * - Disable internal CSS: Add attribute `no-css` (or `no-default-css`) to bring your own styles
+ * 
  * Usage Example:
  * <profile-card
  *   avatar="https://kelsoncm.github.io/profile.png"
@@ -18,6 +23,8 @@
  *   academia="https://independent.academia.edu/kelsoncm"
  * ></profile-card>
  */
+
+const defaultCssUrl = new URL('https://kelsoncm.github.io/components/profile-card.css', import.meta.url).href;
 
 class ProfileCard extends HTMLElement {
   static get observedAttributes() {
@@ -38,7 +45,10 @@ class ProfileCard extends HTMLElement {
       'website',
       'twitter',
       'youtube',
-      'instagram'
+      'instagram',
+      'css-url',
+      'no-css',
+      'no-default-css'
     ];
   }
 
@@ -96,143 +106,21 @@ class ProfileCard extends HTMLElement {
     const location = this.getAttribute('location') || '';
     const status = this.getAttribute('status');
 
+    // CSS resolution logic
+    const customCssUrl = this.getAttribute('css-url');
+    const disableCss = this.hasAttribute('no-css') || this.hasAttribute('no-default-css');
+
+    let cssLinkHTML = '';
+    if (!disableCss) {
+      const activeCssUrl = customCssUrl || defaultCssUrl;
+      cssLinkHTML = `<link rel="stylesheet" href="${activeCssUrl}" />`;
+    }
+
     const socialHTML = this.getSocialLinksHTML();
 
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-      <style>
-        :host {
-          display: block;
-        }
-
-        *, *::before, *::after {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        .profile-card {
-          background: var(--bg-card, #1e293b);
-          border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-          border-radius: var(--radius-lg, 16px);
-          padding: 24px;
-          text-align: center;
-          position: sticky;
-          top: 96px;
-          box-shadow: var(--shadow-glow, 0 10px 30px rgba(0, 0, 0, 0.2));
-          color: var(--text-main, #f8fafc);
-          font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-        }
-
-        .profile-img-wrapper {
-          position: relative;
-          width: 180px;
-          height: 180px;
-          margin: 0 auto 20px;
-        }
-
-        .profile-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 50%;
-          border: 3px solid var(--primary, #38bdf8);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .badge-status {
-          position: absolute;
-          bottom: 8px;
-          right: 12px;
-          background: var(--success, #10b981);
-          color: #ffffff;
-          font-size: 0.75rem;
-          padding: 4px 10px;
-          border-radius: var(--radius-full, 9999px);
-          font-weight: 600;
-          border: 2px solid var(--bg-card, #1e293b);
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .pulse-dot {
-          width: 8px;
-          height: 8px;
-          background: #ffffff;
-          border-radius: 50%;
-          animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-          0% { transform: scale(0.95); opacity: 0.8; }
-          50% { transform: scale(1.2); opacity: 1; }
-          100% { transform: scale(0.95); opacity: 0.8; }
-        }
-
-        .profile-name {
-          font-size: 1.4rem;
-          font-weight: 800;
-          line-height: 1.3;
-          margin-bottom: 6px;
-          color: var(--text-main, #f8fafc);
-        }
-
-        .profile-title {
-          color: var(--primary, #38bdf8);
-          font-size: 0.88rem;
-          font-weight: 600;
-          margin-bottom: 16px;
-          line-height: 1.4;
-        }
-
-        .location-tag {
-          color: var(--text-muted, #94a3b8);
-          font-size: 0.85rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 6px;
-          margin-bottom: 20px;
-        }
-
-        .social-links {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          justify-content: center;
-          margin-top: 16px;
-        }
-
-        .social-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 14px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-          border-radius: var(--radius-md, 8px);
-          color: var(--text-main, #f8fafc);
-          text-decoration: none;
-          font-size: 0.82rem;
-          font-weight: 600;
-          transition: all 0.2s ease;
-        }
-
-        .social-btn:hover {
-          background: var(--primary, #38bdf8);
-          color: #ffffff;
-          border-color: var(--primary, #38bdf8);
-          transform: translateY(-2px);
-        }
-
-        ::slotted([slot="social"]) {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          justify-content: center;
-        }
-      </style>
+      ${cssLinkHTML}
 
       <aside class="profile-card">
         <div class="profile-img-wrapper">
