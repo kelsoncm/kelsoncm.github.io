@@ -18,14 +18,54 @@ const TOTAL_YEARS = END_YEAR - START_YEAR;
 
 const ganttItems = [
   {
+    id: "clipper",
+    category: "languages",
+    name: "Clipper",
+    icon: "fa-solid fa-terminal",
+    color: "#795548",
+    periods: [
+      { start: 1996 + 1/12, end: 1996 + 9/12, dateLabel: "Fev/1996 - Out/1996", detail: "Poliedro: Sistemas MS-DOS concorrentes em Rede Novell" }
+    ]
+  },
+  {
+    id: "cpp",
+    category: "languages",
+    name: "C/C++",
+    icon: "fa-solid fa-code",
+    color: "#17A2B8",
+    periods: [
+      { start: 1996 + 10/12, end: 1999 + 12/12, dateLabel: "Out/1996 - Nov/1999", detail: "Poliedro: Sistemas de GED/DMS, Workflow e C++ Builder" }
+    ]
+  },
+  {
     id: "delphi",
     category: "languages",
     name: "Delphi",
     icon: "fa-solid fa-code",
     color: "#E64A19",
     periods: [
-      { start: 1996 + 9/12, end: 1999 + 10/12, dateLabel: "Out/1996 - Nov/1999", detail: "Poliedro: Sistemas de GED/DMS, Workflow e Delphi 5" },
+      { start: 1996 + 10/12, end: 1999 + 12/12, dateLabel: "Out/1996 - Nov/1999", detail: "Poliedro: Sistemas de GED/DMS, Workflow e Delphi 5" },
       { start: 2002 + 4/12, end: 2009 + 8/12, dateLabel: "Mai/2002 - Set/2009", detail: "FNDE: Sistemas Financeiros SIAFI e Migração Delphi 2005 VCL" }
+    ]
+  },
+  {
+    id: "asp",
+    category: "languages",
+    name: "ASP / VB6",
+    icon: "fa-solid fa-window-restore",
+    color: "#00838F",
+    periods: [
+      { start: 1999 + 10/12, end: 2002 + 4/12, dateLabel: "Nov/1999 - Mai/2002", detail: "Zevallos & AgênciaClick: Framework Hipertools VB6, Portais ASP" }
+    ]
+  },
+  {
+    id: "frontend",
+    category: "languages",
+    name: "JavaScript",
+    icon: "fa-brands fa-js",
+    color: "#818cf8",
+    periods: [
+      { start: 1999 + 10/12, end: 2026 + 12/12, dateLabel: "Nov/1999 - Presente", detail: "Portais, Sistemas Web, Plataformas de EaD, Aplicações Desktop, Aplicações Mobile (Híbridas)" }
     ]
   },
   {
@@ -51,49 +91,30 @@ const ganttItems = [
   {
     id: "php",
     category: "languages",
-    name: "PHP / Laravel",
+    name: "PHP",
     icon: "fa-brands fa-php",
     color: "#777BB4",
     periods: [
       { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "Abr/2009 - Fev/2010", detail: "Optimedia: PHP 5, Red5 e Plataforma de E-learning" },
-      { start: 2014, end: 2026.5, dateLabel: "Jan/2014 - Presente", detail: "IFRN & LAIS: Moodle Plugins, Laravel, Lumen REST APIs" }
-    ]
-  },
-  {
-    id: "asp",
-    category: "languages",
-    name: "ASP / VB6",
-    icon: "fa-solid fa-window-restore",
-    color: "#00838F",
-    periods: [
-      { start: 1999 + 10/12, end: 2002 + 4/12, dateLabel: "Nov/1999 - Mai/2002", detail: "Zevallos & AgênciaClick: Framework Hipertools VB6, Portais ASP" }
-    ]
-  },
-  {
-    id: "clipper",
-    category: "languages",
-    name: "Clipper",
-    icon: "fa-solid fa-terminal",
-    color: "#795548",
-    periods: [
-      { start: 1996 + 1/12, end: 1996 + 9/12, dateLabel: "Fev/1996 - Out/1996", detail: "Poliedro: Sistemas MS-DOS concorrentes em Rede Novell" }
+      { start: 2015 + 3/12, end: 2026.5, dateLabel: "Mar/2015 - Presente", detail: "IFRN & LAIS: Moodle Plugins, Laravel, Lumen REST APIs" }
     ]
   },
   {
     id: "moodle",
     category: "platforms",
-    name: "Moodle / EaD",
+    name: "Moodle",
     icon: "fa-solid fa-graduation-cap",
     color: "#F7931E",
     periods: [
-      { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "2009 - 2010", detail: "Optimedia: Customização de AVA" },
-      { start: 2014, end: 2026.5, dateLabel: "2014 - Presente", detail: "IFRN & LAIS: Dev/Admin Moodle 1.1 até 5.x, Plugins SUAP & Sentry" }
+      { start: 2004 + 6/12, end: 2004 + 9/12, dateLabel: "Jun/2004 - Set/2009", detail: "FNDE: Piloto do Moodle no FNDE" },
+      { start: 2009 + 3/12, end: 2010 + 1/12, dateLabel: "Abr/2009 - Fev/2010", detail: "Optimedia: Customização de AVA" },
+      { start: 2015 + 3/12, end: 2026 + 12/12, dateLabel: "Mar/2015 - Presente", detail: "IFRN & LAIS: Dev/Admin Moodle 1.1 até 5.x, Plugins SUAP & Sentry" }
     ]
   },
   {
     id: "devops",
     category: "platforms",
-    name: "DevOps & Cloud (AWS/K8s)",
+    name: "DevOps & Cloud",
     icon: "fa-brands fa-aws",
     color: "#10b981",
     periods: [
@@ -111,16 +132,6 @@ const ganttItems = [
     ]
   },
   {
-    id: "oracle",
-    category: "databases",
-    name: "Oracle DBMS",
-    icon: "fa-solid fa-database",
-    color: "#F80000",
-    periods: [
-      { start: 2001 + 4/12, end: 2013 + 1/12, dateLabel: "Mai/2001 - Fev/2013", detail: "AgênciaClick, FNDE & TSE: Oracle 8i/9i/10g, PL/SQL, Tuning, Clusters e Modelagem OO Relacional" }
-    ]
-  },
-  {
     id: "mysql",
     category: "databases",
     name: "MySQL / MariaDB",
@@ -128,6 +139,16 @@ const ganttItems = [
     color: "#00758F",
     periods: [
       { start: 1999 + 10/12, end: 2026.5, dateLabel: "Nov/1999 - Presente", detail: "Zevallos, AgênciaClick, Optimedia & LAIS: Portais Web, Sistemas de E-learning e Moodle" }
+    ]
+  },
+  {
+    id: "oracle",
+    category: "databases",
+    name: "Oracle",
+    icon: "fa-solid fa-database",
+    color: "#F80000",
+    periods: [
+      { start: 2001 + 4/12, end: 2013 + 1/12, dateLabel: "Mai/2001 - Fev/2013", detail: "AgênciaClick, FNDE & TSE: Oracle 8i/9i/10g, PL/SQL, Tuning, Clusters e Modelagem OO Relacional" }
     ]
   },
   {
@@ -141,16 +162,6 @@ const ganttItems = [
     ]
   },
   {
-    id: "elasticsearch",
-    category: "databases",
-    name: "ElasticSearch",
-    icon: "fa-solid fa-magnifying-glass",
-    color: "#005571",
-    periods: [
-      { start: 2015 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS / UFRN: Indexação de dados e buscas complexas em ecossistemas de Saúde Digital (AVASUS, PNTD)" }
-    ]
-  },
-  {
     id: "redis",
     category: "databases",
     name: "Redis",
@@ -161,15 +172,33 @@ const ganttItems = [
     ]
   },
   {
+    id: "elasticsearch",
+    category: "databases",
+    name: "OpenSearch",
+    icon: "fa-solid fa-magnifying-glass",
+    color: "#005571",
+    periods: [
+      { start: 2021 + 6/12, end: 2026.5, dateLabel: "Jul/2015 - Presente", detail: "LAIS / UFRN: Indexação de dados e buscas complexas em ecossistemas de Saúde Digital (AVASUS, PNTD)" }
+    ]
+  },
+  {
     id: "frontend",
     category: "frontend",
-    name: "Frontend (JS / Vue / ExtJS)",
+    name: "ExtJS",
     icon: "fa-brands fa-vuejs",
     color: "#818cf8",
     periods: [
-      { start: 2004 + 8/12, end: 2009 + 1/12, dateLabel: "2004 - 2009", detail: "FNDE: ExtJS (Rich Internet Applications)" },
-      { start: 2010, end: 2013, dateLabel: "2010 - 2013", detail: "TSE: jQuery & interfaces interativas" },
-      { start: 2015, end: 2026.5, dateLabel: "2015 - Presente", detail: "LAIS & IFRN: JavaScript, Vue.js, Tailwind, HTML5/CSS3" }
+      { start: 2004 + 8/12, end: 2009 + 1/12, dateLabel: "2004 - 2009", detail: "FNDE: ExtJS (Rich Internet Applications)" }
+    ]
+  },
+  {
+    id: "frontend",
+    category: "frontend",
+    name: "Vue",
+    icon: "fa-brands fa-vuejs",
+    color: "#818cf8",
+    periods: [
+      { start: 2020, end: 2026 + 12/12, dateLabel: "2015 - Presente", detail: "LAIS & IFRN: Vue.js, SASS, HTML5/CSS3" }
     ]
   }
 ];

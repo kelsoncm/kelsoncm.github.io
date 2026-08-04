@@ -585,6 +585,226 @@ section.section-block {
   margin-bottom: 6px;
 }
 
+/* Experience Concurrent Banner & Multi-Track Swimlanes */
+.concurrent-info-banner {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.concurrent-info-banner .banner-icon {
+  background: var(--primary);
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+}
+
+.concurrent-info-banner .banner-text strong {
+  color: var(--text-main);
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.concurrent-info-banner .banner-text p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.concurrent-matrix-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-glow);
+}
+
+.matrix-header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.matrix-header-title span:first-child {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.matrix-header-title span:first-child i {
+  color: var(--primary);
+}
+
+.matrix-badge {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.matrix-container {
+  overflow-x: auto;
+  min-width: 650px;
+}
+
+.matrix-years {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 170px;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.matrix-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  height: 36px;
+}
+
+.matrix-label {
+  width: 170px;
+  min-width: 170px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  white-space: nowrap;
+}
+
+.matrix-label i {
+  color: var(--primary);
+  width: 16px;
+  text-align: center;
+}
+
+.matrix-track {
+  flex: 1;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-sm);
+  position: relative;
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.matrix-bar {
+  position: absolute;
+  height: 26px;
+  top: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.matrix-bar:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+  z-index: 5;
+}
+
+.bar-poliedro { background: linear-gradient(90deg, #64748b, #475569); border: 1px solid #94a3b8; }
+.bar-agenciaclick { background: linear-gradient(90deg, #0284c7, #0369a1); border: 1px solid #38bdf8; }
+.bar-fnde { background: linear-gradient(90deg, #d97706, #b45309); border: 1px solid #fbbf24; }
+.bar-optimedia { background: linear-gradient(90deg, #ea580c, #c2410c); border: 1px solid #fb923c; }
+.bar-tse { background: linear-gradient(90deg, #2563eb, #1d4ed8); border: 1px solid #60a5fa; }
+.bar-voxti { background: linear-gradient(90deg, #7c3aed, #6d28d9); border: 1px solid #a78bfa; }
+.bar-ifrn { background: linear-gradient(90deg, #10b981, #059669); border: 1px solid #34d399; }
+.bar-lais { background: linear-gradient(90deg, #38bdf8, #0284c7); border: 1px solid #7dd3fc; }
+.bar-navi { background: linear-gradient(90deg, #f59e0b, #d97706); border: 1px solid #fbbf24; }
+.bar-laica { background: linear-gradient(90deg, #8b5cf6, #7c3aed); border: 1px solid #a78bfa; }
+.bar-nees { background: linear-gradient(90deg, #ec4899, #db2777); border: 1px solid #f472b6; }
+
+/* Highlight Group for 2014 - Present Concurrent Roles */
+.matrix-concurrent-group {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-md);
+  padding: 12px 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.matrix-concurrent-group .group-label-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 4px;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.role-badge.efective-badge {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.role-badge.concurrent-badge {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
 /* Experience Timeline */
 .timeline {
   position: relative;
