@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topics dos repositórios | Kelson da Costa Medeiros</title>
+  <meta name="description" content="Estatísticas dos topics do GitHub nas organizações e na conta de Kelson da Costa Medeiros, separando repositórios públicos e privados." />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --pub: #3987e5; --priv: #d95926; }
+    body { margin: 0; padding: 24px 16px 48px; background: #0a0e17; color: #f3f4f6; font-family: 'Plus Jakarta Sans', sans-serif; }
+    main { max-width: 860px; margin: 0 auto; }
+    h1 { font-size: 24px; font-weight: 700; margin: 0 0 4px; }
+    h2 { font-size: 16px; font-weight: 500; margin: 32px 0 8px; }
+    .sub, .legend { color: #9ca3af; font-size: 13px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 24px; }
+    .card { background: #111827; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 16px; }
+    .card b { display: block; font-size: 26px; font-weight: 700; }
+    .card span { color: #9ca3af; font-size: 13px; }
+    .legend { display: flex; gap: 16px; margin: 8px 0; }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+    .chart { position: relative; width: 100%; }
+    #err { color: #f87171; }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Topics dos repositórios</h1>
+  <p class="sub">Atualizado em <span id="when">…</span>. Contagem de repositórios, separando públicos e privados. <a href="index.html">Voltar</a></p>
+  <p id="err"></p>
+  <div class="cards" id="cards"></div>
+
+  <h2>Topics mais usados</h2>
+  <div class="legend"><span><i style="background:var(--pub)"></i>Públicos</span><span><i style="background:var(--priv)"></i>Privados</span></div>
+  <div class="chart" id="w1"><canvas id="c1" role="img" aria-label="Barras empilhadas dos topics mais usados, separando repositórios públicos e privados."></canvas></div>
+
+  <h2>Repositórios por organização</h2>
+  <div class="legend"><span><i style="background:var(--pub)"></i>Públicos</span><span><i style="background:var(--priv)"></i>Privados</span></div>
+  <div class="chart" id="w2"><canvas id="c2" role="img" aria-label="Barras empilhadas de repositórios por organização, separando públicos e privados."></canvas></div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha384-dug+JxfBvklEQdJ4AYuBBAIScUz0bVN73xpy273gcAwHjb3qI0fXmuYNaNfdyYJG" crossorigin="anonymous"></script>
+<script>
+(function () {
+  var PUB = '#3987e5', PRIV = '#d95926', INK = '#c3c2b7', GRID = '#2c2c2a';
+  function sum(o) { return o.public + o.private; }
+  function bars(canvasId, wrapId, labels, pub, priv) {
+    document.getElementById(wrapId).style.height = (labels.length * 30 + 70) + 'px';
+    new Chart(document.getElementById(canvasId), {
+      type: 'bar',
+      data: { labels: labels, datasets: [
+        { label: 'Públicos', data: pub, backgroundColor: PUB, borderSkipped: false },
+        { label: 'Privados', data: priv, backgroundColor: PRIV, borderRadius: { topRight: 4, bottomRight: 4 }, borderSkipped: 'start' }
+      ] },
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { stacked: true, grid: { color: GRID }, ticks: { color: INK, precision: 0 } },
+                  y: { stacked: true, grid: { display: false }, ticks: { color: INK, autoSkip: false } } } }
+    });
+  }
+  fetch('data/topics-stats.json').then(function (r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  }).then(function (d) {
+    document.getElementById('when').textContent = new Date(d.generated_at).toLocaleDateString('pt-BR');
+    var t = d.totals;
+    var cards = [
+      [sum(t.repos), 'repositórios (' + t.repos.public + ' públicos, ' + t.repos.private + ' privados)'],
+      [t.distinct_topics, 'topics distintos'],
+      [sum(t.ifrn), 'com topic ifrn'],
+      [sum(t.without_topics), 'sem nenhum topic']
+    ];
+    document.getElementById('cards').innerHTML = cards.map(function (c) {
+      return '<div class="card"><b>' + c[0] + '</b><span>' + c[1] + '</span></div>';
+    }).join('');
+    bars('c1', 'w1', d.top_topics.map(function (x) { return x.name; }),
+         d.top_topics.map(function (x) { return x.public; }), d.top_topics.map(function (x) { return x.private; }));
+    bars('c2', 'w2', d.orgs.map(function (o) { return o.org; }),
+         d.orgs.map(function (o) { return o.repos.public; }), d.orgs.map(function (o) { return o.repos.private; }));
+  }).catch(function (e) {
+    document.getElementById('err').textContent = 'Não foi possível carregar data/topics-stats.json (' + e.message + ').';
+  });
+})();
+</script>
+</body>
+</html>
