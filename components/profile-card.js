@@ -26,6 +26,12 @@
 
 const defaultCssUrl = new URL('https://kelsoncm.github.io/components/profile-card.css', import.meta.url).href;
 
+const escapeHTML = (value) =>
+  String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+
+// Aceita só http(s), mailto e caminhos relativos; qualquer outro esquema (javascript:, data:) vira '#'.
+const safeUrl = (value) => (/^(https?:|mailto:|[^:]*$)/i.test(value.trim()) ? value : '#');
+
 class ProfileCard extends HTMLElement {
   static get observedAttributes() {
     return [
@@ -73,8 +79,9 @@ class ProfileCard extends HTMLElement {
     const addLink = (attr, label, iconClass, prefix = '') => {
       const val = this.getAttribute(attr);
       if (val) {
-        const href = prefix ? (val.startsWith(prefix) ? val : `${prefix}${val}`) : val;
-        const isExternal = href.startsWith('http');
+        const rawHref = prefix ? (val.startsWith(prefix) ? val : `${prefix}${val}`) : val;
+        const isExternal = rawHref.startsWith('http');
+        const href = escapeHTML(safeUrl(rawHref));
         const targetAttr = isExternal ? 'target="_blank" rel="noopener"' : '';
         links.push(`
           <a href="${href}" ${targetAttr} class="social-btn" title="${label}">
@@ -100,11 +107,12 @@ class ProfileCard extends HTMLElement {
   }
 
   render() {
-    const avatar = this.getAttribute('avatar') || 'profile.png';
-    const name = this.getAttribute('name') || '';
-    const title = this.getAttribute('profile-title') || this.getAttribute('title') || '';
-    const location = this.getAttribute('location') || '';
-    const status = this.getAttribute('status');
+    const avatar = escapeHTML(this.getAttribute('avatar') || 'profile.png');
+    const name = escapeHTML(this.getAttribute('name') || '');
+    const title = escapeHTML(this.getAttribute('profile-title') || this.getAttribute('title') || '');
+    const location = escapeHTML(this.getAttribute('location') || '');
+    const rawStatus = this.getAttribute('status');
+    const status = rawStatus ? escapeHTML(rawStatus) : rawStatus;
 
     // CSS resolution logic
     const customCssUrl = this.getAttribute('css-url');
@@ -112,7 +120,7 @@ class ProfileCard extends HTMLElement {
 
     let cssLinkHTML = '';
     if (!disableCss) {
-      const activeCssUrl = customCssUrl || defaultCssUrl;
+      const activeCssUrl = escapeHTML(safeUrl(customCssUrl || defaultCssUrl));
       cssLinkHTML = `<link rel="stylesheet" href="${activeCssUrl}" />`;
     }
 
