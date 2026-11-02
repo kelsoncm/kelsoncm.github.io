@@ -1,35 +1,40 @@
 {
-  "generated_at": "2026-10-27T20:25:32Z",
+  "generated_at": "2026-11-02T18:54:27Z",
   "totals": {
     "repos": {
-      "public": 152,
-      "private": 56
+      "public": 181,
+      "private": 61
     },
     "distinct_topics": 129,
     "ifrn": {
-      "public": 61,
-      "private": 28
+      "public": 60,
+      "private": 29
     },
     "without_topics": {
-      "public": 0,
-      "private": 9
+      "public": 28,
+      "private": 12
     }
   },
   "top_topics": [
     {
       "name": "ifrn",
-      "public": 61,
-      "private": 28
+      "public": 60,
+      "private": 29
     },
     {
       "name": "moodle",
-      "public": 62,
+      "public": 63,
       "private": 2
     },
     {
       "name": "moodle-plugin",
-      "public": 43,
+      "public": 44,
       "private": 2
+    },
+    {
+      "name": "documentation",
+      "public": 26,
+      "private": 3
     },
     {
       "name": "python",
@@ -37,14 +42,9 @@
       "private": 3
     },
     {
-      "name": "documentation",
-      "public": 25,
-      "private": 3
-    },
-    {
       "name": "workspace",
-      "public": 1,
-      "private": 23
+      "public": 0,
+      "private": 25
     },
     {
       "name": "django",
@@ -53,7 +53,7 @@
     },
     {
       "name": "org-profile",
-      "public": 19,
+      "public": 20,
       "private": 0
     },
     {
@@ -77,6 +77,11 @@
       "private": 0
     },
     {
+      "name": "moodle-tool",
+      "public": 10,
+      "private": 1
+    },
+    {
       "name": "unofficial",
       "public": 7,
       "private": 4
@@ -85,18 +90,33 @@
       "name": "h5p-library",
       "public": 10,
       "private": 0
-    },
-    {
-      "name": "infra",
-      "public": 1,
-      "private": 9
     }
   ],
   "orgs": [
     {
+      "org": "lais-huol",
+      "repos": {
+        "public": 26,
+        "private": 3
+      },
+      "ifrn": {
+        "public": 0,
+        "private": 0
+      },
+      "archived": {
+        "public": 3,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 26,
+        "private": 3
+      },
+      "top_topics": []
+    },
+    {
       "org": "moodle-by-kelsoncm",
       "repos": {
-        "public": 25,
+        "public": 19,
         "private": 1
       },
       "ifrn": {
@@ -104,27 +124,22 @@
         "private": 0
       },
       "archived": {
-        "public": 0,
+        "public": 2,
         "private": 0
       },
       "without_topics": {
-        "public": 0,
+        "public": 1,
         "private": 0
       },
       "top_topics": [
         {
           "name": "moodle",
-          "public": 24,
+          "public": 17,
           "private": 0
         },
         {
           "name": "moodle-plugin",
-          "public": 19,
-          "private": 0
-        },
-        {
-          "name": "moodle-tool",
-          "public": 6,
+          "public": 13,
           "private": 0
         },
         {
@@ -134,7 +149,12 @@
         },
         {
           "name": "moodle-tiny",
-          "public": 4,
+          "public": 5,
+          "private": 0
+        },
+        {
+          "name": "moodle-tool",
+          "public": 3,
           "private": 0
         }
       ]
@@ -462,6 +482,52 @@
       ]
     },
     {
+      "org": "moodle-fields-suite",
+      "repos": {
+        "public": 9,
+        "private": 1
+      },
+      "ifrn": {
+        "public": 0,
+        "private": 0
+      },
+      "archived": {
+        "public": 0,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 0,
+        "private": 0
+      },
+      "top_topics": [
+        {
+          "name": "moodle",
+          "public": 8,
+          "private": 0
+        },
+        {
+          "name": "moodle-plugin",
+          "public": 7,
+          "private": 0
+        },
+        {
+          "name": "moodle-tool",
+          "public": 4,
+          "private": 0
+        },
+        {
+          "name": "org-profile",
+          "public": 1,
+          "private": 0
+        },
+        {
+          "name": "documentation",
+          "public": 1,
+          "private": 0
+        }
+      ]
+    },
+    {
       "org": "vkcd-io",
       "repos": {
         "public": 0,
@@ -511,17 +577,17 @@
           "private": 0
         },
         {
-          "name": "js-library",
-          "public": 1,
-          "private": 0
-        },
-        {
           "name": "python",
           "public": 1,
           "private": 0
         },
         {
           "name": "pypi",
+          "public": 1,
+          "private": 0
+        },
+        {
+          "name": "python-library",
           "public": 1,
           "private": 0
         }
@@ -574,55 +640,9 @@
       ]
     },
     {
-      "org": "eduplay-moodle-suite",
-      "repos": {
-        "public": 6,
-        "private": 1
-      },
-      "ifrn": {
-        "public": 0,
-        "private": 0
-      },
-      "archived": {
-        "public": 0,
-        "private": 0
-      },
-      "without_topics": {
-        "public": 0,
-        "private": 0
-      },
-      "top_topics": [
-        {
-          "name": "eduplay",
-          "public": 5,
-          "private": 0
-        },
-        {
-          "name": "moodle",
-          "public": 5,
-          "private": 0
-        },
-        {
-          "name": "rnp",
-          "public": 5,
-          "private": 0
-        },
-        {
-          "name": "moodle-plugin",
-          "public": 4,
-          "private": 0
-        },
-        {
-          "name": "video",
-          "public": 3,
-          "private": 0
-        }
-      ]
-    },
-    {
       "org": "python-by-kelsoncm",
       "repos": {
-        "public": 6,
+        "public": 7,
         "private": 1
       },
       "ifrn": {
@@ -634,7 +654,7 @@
         "private": 0
       },
       "without_topics": {
-        "public": 0,
+        "public": 1,
         "private": 0
       },
       "top_topics": [
@@ -654,13 +674,59 @@
           "private": 0
         },
         {
-          "name": "coverage",
+          "name": "utilities",
           "public": 1,
           "private": 0
         },
         {
-          "name": "org-profile",
+          "name": "ftp",
           "public": 1,
+          "private": 0
+        }
+      ]
+    },
+    {
+      "org": "eduplay-moodle-suite",
+      "repos": {
+        "public": 6,
+        "private": 1
+      },
+      "ifrn": {
+        "public": 0,
+        "private": 0
+      },
+      "archived": {
+        "public": 0,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 0,
+        "private": 0
+      },
+      "top_topics": [
+        {
+          "name": "moodle",
+          "public": 5,
+          "private": 0
+        },
+        {
+          "name": "rnp",
+          "public": 5,
+          "private": 0
+        },
+        {
+          "name": "eduplay",
+          "public": 5,
+          "private": 0
+        },
+        {
+          "name": "moodle-plugin",
+          "public": 4,
+          "private": 0
+        },
+        {
+          "name": "video",
+          "public": 3,
           "private": 0
         }
       ]
@@ -1082,12 +1148,12 @@
     {
       "org": "coloquio-ppgep-ifrn",
       "repos": {
-        "public": 2,
-        "private": 1
+        "public": 1,
+        "private": 2
       },
       "ifrn": {
-        "public": 2,
-        "private": 1
+        "public": 1,
+        "private": 2
       },
       "archived": {
         "public": 0,
@@ -1100,8 +1166,8 @@
       "top_topics": [
         {
           "name": "ifrn",
-          "public": 2,
-          "private": 1
+          "public": 1,
+          "private": 2
         },
         {
           "name": "coloquio",
@@ -1109,14 +1175,14 @@
           "private": 1
         },
         {
-          "name": "workspace",
+          "name": "documentation",
           "public": 1,
           "private": 0
         },
         {
-          "name": "documentation",
-          "public": 1,
-          "private": 0
+          "name": "workspace",
+          "public": 0,
+          "private": 1
         },
         {
           "name": "wordpress",
