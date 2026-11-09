@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-02T18:54:27Z",
+  "generated_at": "2026-11-09T19:15:03Z",
   "totals": {
     "repos": {
-      "public": 181,
-      "private": 61
+      "public": 184,
+      "private": 64
     },
     "distinct_topics": 129,
     "ifrn": {
@@ -11,8 +11,8 @@
       "private": 29
     },
     "without_topics": {
-      "public": 28,
-      "private": 12
+      "public": 31,
+      "private": 15
     }
   },
   "top_topics": [
@@ -116,7 +116,7 @@
     {
       "org": "moodle-by-kelsoncm",
       "repos": {
-        "public": 19,
+        "public": 21,
         "private": 1
       },
       "ifrn": {
@@ -128,7 +128,7 @@
         "private": 0
       },
       "without_topics": {
-        "public": 1,
+        "public": 3,
         "private": 0
       },
       "top_topics": [
@@ -163,7 +163,7 @@
       "org": "cte-zl-ifrn",
       "repos": {
         "public": 7,
-        "private": 12
+        "private": 13
       },
       "ifrn": {
         "public": 7,
@@ -175,7 +175,7 @@
       },
       "without_topics": {
         "public": 0,
-        "private": 0
+        "private": 1
       },
       "top_topics": [
         {
@@ -291,7 +291,7 @@
           "private": 0
         },
         {
-          "name": "integration",
+          "name": "moodle-plugin",
           "public": 7,
           "private": 0
         }
@@ -337,7 +337,7 @@
           "private": 0
         },
         {
-          "name": "tinymce",
+          "name": "moodle",
           "public": 1,
           "private": 0
         }
@@ -346,7 +346,7 @@
     {
       "org": "abrasileirado",
       "repos": {
-        "public": 10,
+        "public": 11,
         "private": 1
       },
       "ifrn": {
@@ -358,7 +358,7 @@
         "private": 0
       },
       "without_topics": {
-        "public": 0,
+        "public": 1,
         "private": 0
       },
       "top_topics": [
@@ -386,6 +386,52 @@
           "name": "docs-theme",
           "public": 1,
           "private": 0
+        }
+      ]
+    },
+    {
+      "org": "infra-cte-zl-ifrn",
+      "repos": {
+        "public": 1,
+        "private": 11
+      },
+      "ifrn": {
+        "public": 1,
+        "private": 9
+      },
+      "archived": {
+        "public": 0,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 0,
+        "private": 2
+      },
+      "top_topics": [
+        {
+          "name": "ifrn",
+          "public": 1,
+          "private": 9
+        },
+        {
+          "name": "infra",
+          "public": 1,
+          "private": 9
+        },
+        {
+          "name": "kubernetes",
+          "public": 1,
+          "private": 6
+        },
+        {
+          "name": "helm-chart",
+          "public": 0,
+          "private": 6
+        },
+        {
+          "name": "documentation",
+          "public": 0,
+          "private": 2
         }
       ]
     },
@@ -436,52 +482,6 @@
       ]
     },
     {
-      "org": "infra-cte-zl-ifrn",
-      "repos": {
-        "public": 1,
-        "private": 9
-      },
-      "ifrn": {
-        "public": 1,
-        "private": 9
-      },
-      "archived": {
-        "public": 0,
-        "private": 0
-      },
-      "without_topics": {
-        "public": 0,
-        "private": 0
-      },
-      "top_topics": [
-        {
-          "name": "ifrn",
-          "public": 1,
-          "private": 9
-        },
-        {
-          "name": "infra",
-          "public": 1,
-          "private": 9
-        },
-        {
-          "name": "kubernetes",
-          "public": 1,
-          "private": 6
-        },
-        {
-          "name": "helm-chart",
-          "public": 0,
-          "private": 6
-        },
-        {
-          "name": "documentation",
-          "public": 0,
-          "private": 2
-        }
-      ]
-    },
-    {
       "org": "moodle-fields-suite",
       "repos": {
         "public": 9,
@@ -516,12 +516,12 @@
           "private": 0
         },
         {
-          "name": "org-profile",
+          "name": "moodle-local",
           "public": 1,
           "private": 0
         },
         {
-          "name": "documentation",
+          "name": "moodle-customfield",
           "public": 1,
           "private": 0
         }
@@ -705,17 +705,17 @@
       },
       "top_topics": [
         {
+          "name": "eduplay",
+          "public": 5,
+          "private": 0
+        },
+        {
           "name": "moodle",
           "public": 5,
           "private": 0
         },
         {
           "name": "rnp",
-          "public": 5,
-          "private": 0
-        },
-        {
-          "name": "eduplay",
           "public": 5,
           "private": 0
         },
@@ -940,17 +940,17 @@
           "private": 0
         },
         {
-          "name": "mobile-app",
-          "public": 1,
-          "private": 0
-        },
-        {
           "name": "wordpress",
           "public": 1,
           "private": 0
         },
         {
           "name": "wordpress-plugin",
+          "public": 1,
+          "private": 0
+        },
+        {
+          "name": "mobile-app",
           "public": 1,
           "private": 0
         },
