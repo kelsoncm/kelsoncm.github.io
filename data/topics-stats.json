@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-09T19:15:03Z",
+  "generated_at": "2026-11-16T20:43:48Z",
   "totals": {
     "repos": {
       "public": 184,
-      "private": 64
+      "private": 65
     },
     "distinct_topics": 129,
     "ifrn": {
@@ -12,7 +12,7 @@
     },
     "without_topics": {
       "public": 31,
-      "private": 15
+      "private": 16
     }
   },
   "top_topics": [
@@ -291,7 +291,7 @@
           "private": 0
         },
         {
-          "name": "moodle-plugin",
+          "name": "integration",
           "public": 7,
           "private": 0
         }
@@ -439,7 +439,7 @@
       "org": "kelsoncm",
       "repos": {
         "public": 6,
-        "private": 5
+        "private": 6
       },
       "ifrn": {
         "public": 2,
@@ -451,7 +451,7 @@
       },
       "without_topics": {
         "public": 0,
-        "private": 0
+        "private": 1
       },
       "top_topics": [
         {
