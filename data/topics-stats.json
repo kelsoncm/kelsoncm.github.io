@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-16T20:43:48Z",
+  "generated_at": "2026-11-23T20:39:04Z",
   "totals": {
     "repos": {
-      "public": 184,
-      "private": 65
+      "public": 201,
+      "private": 68
     },
-    "distinct_topics": 129,
+    "distinct_topics": 170,
     "ifrn": {
       "public": 60,
       "private": 29
     },
     "without_topics": {
-      "public": 31,
+      "public": 30,
       "private": 16
     }
   },
@@ -23,38 +23,38 @@
     },
     {
       "name": "moodle",
-      "public": 63,
-      "private": 2
+      "public": 75,
+      "private": 5
     },
     {
       "name": "moodle-plugin",
-      "public": 44,
+      "public": 53,
       "private": 2
     },
     {
       "name": "documentation",
-      "public": 26,
+      "public": 27,
       "private": 3
     },
     {
       "name": "python",
-      "public": 25,
-      "private": 3
+      "public": 24,
+      "private": 4
     },
     {
       "name": "workspace",
       "public": 0,
-      "private": 25
+      "private": 26
+    },
+    {
+      "name": "org-profile",
+      "public": 21,
+      "private": 0
     },
     {
       "name": "django",
       "public": 17,
       "private": 3
-    },
-    {
-      "name": "org-profile",
-      "public": 20,
-      "private": 0
     },
     {
       "name": "suap",
@@ -82,14 +82,14 @@
       "private": 1
     },
     {
+      "name": "observability",
+      "public": 9,
+      "private": 2
+    },
+    {
       "name": "unofficial",
       "public": 7,
       "private": 4
-    },
-    {
-      "name": "h5p-library",
-      "public": 10,
-      "private": 0
     }
   ],
   "orgs": [
@@ -128,23 +128,23 @@
         "private": 0
       },
       "without_topics": {
-        "public": 3,
+        "public": 0,
         "private": 0
       },
       "top_topics": [
         {
           "name": "moodle",
-          "public": 17,
+          "public": 20,
           "private": 0
         },
         {
           "name": "moodle-plugin",
-          "public": 13,
+          "public": 15,
           "private": 0
         },
         {
-          "name": "tinymce",
-          "public": 5,
+          "name": "fork",
+          "public": 7,
           "private": 0
         },
         {
@@ -153,9 +153,55 @@
           "private": 0
         },
         {
-          "name": "moodle-tool",
-          "public": 3,
+          "name": "tinymce",
+          "public": 5,
           "private": 0
+        }
+      ]
+    },
+    {
+      "org": "kelsoncm",
+      "repos": {
+        "public": 15,
+        "private": 6
+      },
+      "ifrn": {
+        "public": 2,
+        "private": 0
+      },
+      "archived": {
+        "public": 1,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 2,
+        "private": 1
+      },
+      "top_topics": [
+        {
+          "name": "template",
+          "public": 7,
+          "private": 0
+        },
+        {
+          "name": "unofficial",
+          "public": 2,
+          "private": 3
+        },
+        {
+          "name": "documentation",
+          "public": 4,
+          "private": 0
+        },
+        {
+          "name": "workspace",
+          "public": 0,
+          "private": 4
+        },
+        {
+          "name": "nees",
+          "public": 0,
+          "private": 3
         }
       ]
     },
@@ -436,52 +482,6 @@
       ]
     },
     {
-      "org": "kelsoncm",
-      "repos": {
-        "public": 6,
-        "private": 6
-      },
-      "ifrn": {
-        "public": 2,
-        "private": 0
-      },
-      "archived": {
-        "public": 1,
-        "private": 1
-      },
-      "without_topics": {
-        "public": 0,
-        "private": 1
-      },
-      "top_topics": [
-        {
-          "name": "unofficial",
-          "public": 2,
-          "private": 3
-        },
-        {
-          "name": "documentation",
-          "public": 4,
-          "private": 0
-        },
-        {
-          "name": "workspace",
-          "public": 0,
-          "private": 4
-        },
-        {
-          "name": "nees",
-          "public": 0,
-          "private": 3
-        },
-        {
-          "name": "ifrn",
-          "public": 2,
-          "private": 0
-        }
-      ]
-    },
-    {
       "org": "moodle-fields-suite",
       "repos": {
         "public": 9,
@@ -516,13 +516,59 @@
           "private": 0
         },
         {
-          "name": "moodle-local",
+          "name": "org-profile",
           "public": 1,
           "private": 0
         },
         {
-          "name": "moodle-customfield",
+          "name": "documentation",
           "public": 1,
+          "private": 0
+        }
+      ]
+    },
+    {
+      "org": "moodle-observability",
+      "repos": {
+        "public": 9,
+        "private": 1
+      },
+      "ifrn": {
+        "public": 0,
+        "private": 0
+      },
+      "archived": {
+        "public": 0,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 0,
+        "private": 0
+      },
+      "top_topics": [
+        {
+          "name": "moodle",
+          "public": 9,
+          "private": 1
+        },
+        {
+          "name": "observability",
+          "public": 9,
+          "private": 1
+        },
+        {
+          "name": "moodle-plugin",
+          "public": 7,
+          "private": 0
+        },
+        {
+          "name": "php",
+          "public": 7,
+          "private": 0
+        },
+        {
+          "name": "monitoring",
+          "public": 6,
           "private": 0
         }
       ]
@@ -916,6 +962,52 @@
       ]
     },
     {
+      "org": "dashboard-ava-suite",
+      "repos": {
+        "public": 2,
+        "private": 3
+      },
+      "ifrn": {
+        "public": 0,
+        "private": 0
+      },
+      "archived": {
+        "public": 0,
+        "private": 0
+      },
+      "without_topics": {
+        "public": 0,
+        "private": 0
+      },
+      "top_topics": [
+        {
+          "name": "moodle",
+          "public": 1,
+          "private": 2
+        },
+        {
+          "name": "postgresql",
+          "public": 0,
+          "private": 2
+        },
+        {
+          "name": "documentation",
+          "public": 1,
+          "private": 0
+        },
+        {
+          "name": "org-profile",
+          "public": 1,
+          "private": 0
+        },
+        {
+          "name": "golang",
+          "public": 0,
+          "private": 1
+        }
+      ]
+    },
+    {
       "org": "digital-library-suite",
       "repos": {
         "public": 4,
@@ -1002,52 +1094,6 @@
         },
         {
           "name": "superset-theme",
-          "public": 1,
-          "private": 0
-        }
-      ]
-    },
-    {
-      "org": "dashboard-ava-suite",
-      "repos": {
-        "public": 3,
-        "private": 1
-      },
-      "ifrn": {
-        "public": 0,
-        "private": 0
-      },
-      "archived": {
-        "public": 0,
-        "private": 0
-      },
-      "without_topics": {
-        "public": 0,
-        "private": 0
-      },
-      "top_topics": [
-        {
-          "name": "moodle",
-          "public": 2,
-          "private": 0
-        },
-        {
-          "name": "airflow",
-          "public": 1,
-          "private": 0
-        },
-        {
-          "name": "elt-pipeline",
-          "public": 1,
-          "private": 0
-        },
-        {
-          "name": "postgresql",
-          "public": 1,
-          "private": 0
-        },
-        {
-          "name": "etl-pipeline",
           "public": 1,
           "private": 0
         }
